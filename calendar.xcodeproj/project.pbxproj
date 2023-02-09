@@ -14,6 +14,8 @@
 		9D13B72429921521008669D7 /* CalendarManageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B72329921521008669D7 /* CalendarManageViewModel.swift */; };
 		9D13B7512993370B008669D7 /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B7502993370B008669D7 /* DayModel.swift */; };
 		9D13B75529937409008669D7 /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B75429937408008669D7 /* CalendarModel.swift */; };
+		9D13B7582994BD60008669D7 /* SystemCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B7572994BD60008669D7 /* SystemCalendar.swift */; };
+		9D13B75A2994F695008669D7 /* Date+formart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B7592994F695008669D7 /* Date+formart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		9D13B72329921521008669D7 /* CalendarManageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManageViewModel.swift; sourceTree = "<group>"; };
 		9D13B7502993370B008669D7 /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		9D13B75429937408008669D7 /* CalendarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModel.swift; sourceTree = "<group>"; };
+		9D13B7572994BD60008669D7 /* SystemCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCalendar.swift; sourceTree = "<group>"; };
+		9D13B7592994F695008669D7 /* Date+formart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+formart.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 		9D13B7092990957B008669D7 /* calendar */ = {
 			isa = PBXGroup;
 			children = (
+				9D13B7562994BD20008669D7 /* Singleton */,
 				9D13B75329936F34008669D7 /* Cell */,
 				9D13B75229936D13008669D7 /* Extension */,
 				9D13B720299214A8008669D7 /* VIewModel */,
@@ -97,6 +102,7 @@
 		9D13B75229936D13008669D7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				9D13B7592994F695008669D7 /* Date+formart.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -106,6 +112,14 @@
 			children = (
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		9D13B7562994BD20008669D7 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				9D13B7572994BD60008669D7 /* SystemCalendar.swift */,
+			);
+			path = Singleton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,9 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D13B7582994BD60008669D7 /* SystemCalendar.swift in Sources */,
 				9D13B7512993370B008669D7 /* DayModel.swift in Sources */,
 				9D13B75529937409008669D7 /* CalendarModel.swift in Sources */,
 				9D13B70D2990957B008669D7 /* ContentView.swift in Sources */,
+				9D13B75A2994F695008669D7 /* Date+formart.swift in Sources */,
 				9D13B70B2990957B008669D7 /* calendarApp.swift in Sources */,
 				9D13B72429921521008669D7 /* CalendarManageViewModel.swift in Sources */,
 			);

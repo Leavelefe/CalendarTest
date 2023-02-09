@@ -7,30 +7,21 @@
 
 import Foundation
 
-/// Under Construction
+/// Daymodel
+/// Only Delare day strcture data
+/// Haven't involve bussiness data
+///
 struct DayModel {
     private(set) var picked: Bool = false
     private(set) var isToday: Bool = false
     private(set) var toDO: Bool = false
-    private(set) var isThisMonth: Bool = true
-    private(set) var today: Day
-    
-    func choose(_ day: Day) {
-        
-    }
+    //Whether this day belongs to current display month
+    private(set) var isCurrentMonth: Bool = false
     
     //init
 //    init() {
 //        today = Day(Date()
 //        
 //    }
-    
-    struct Day: Identifiable {
-        var date: Date
-        var id: Int
-    }
-}
-
-struct WeekDay {
     
 }

@@ -12,6 +12,7 @@ struct ContentView: View {
         VStack {
             CalendarView()
             Index()
+            buffer()
         }
     }
 }
@@ -79,7 +80,7 @@ struct CircleView: View {
 }
 
 /// Part of the logic and var retained in the Index will be put into the Model and ViewModel respectively
-struct Index:View {
+struct Index: View {
     private let segmented = ["宏观财经","股票理财"]
     @State private var selector = 1
     var body: some View{
@@ -118,6 +119,17 @@ struct Index:View {
     }
 }
 
+struct buffer: View {
+    var body: some View {
+        TabView {
+                    Text("First")
+                    Text("Second")
+                    Text("Third")
+                    Text("Fourth")
+                }
+                .tabViewStyle(PageTabViewStyle())
+    }
+}
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
