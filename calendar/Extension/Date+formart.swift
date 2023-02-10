@@ -27,4 +27,10 @@ extension Date {
         formatter.dateFormat = "yyyyMMdd"
         return formatter.string(from: self)
     }
+    
+    func getStringDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月"
+        return formatter.string(from: self)
+    }
 }

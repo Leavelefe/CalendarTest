@@ -13,7 +13,7 @@ import Foundation
 let myCalendar = SystemCalendar()
 
 
-struct SystemCalendar{
+struct SystemCalendar {
     public var calendar: Calendar = Calendar(identifier: .gregorian)
     init() {
         //Monday should be the first day in a week
@@ -26,7 +26,7 @@ struct SystemCalendar{
     ///   - interval: Interval for caculating days
     ///   - components: DateComponents required for matching
     /// - Returns: Return an array of dates
-    func generateDays(inside interval: DateInterval, matching components: DateComponents) -> [Date] {
+    func generateDays (inside interval: DateInterval, matching components: DateComponents) -> [Date] {
         
         var dates: [Date] = []
         dates.append(interval.start)
@@ -73,8 +73,23 @@ struct SystemCalendar{
         return days
     }
     
-    public func isCurrentMonth(is day_1: Date, equalto day_2: Date) -> Bool{
+    
+    /// isCurrentMonth
+    /// - Parameters:
+    ///   - day_1: The first comparator
+    ///   - day_2: The second comparator
+    /// - Returns: Whether these two days are in the same month
+    public func isCurrentMonth(is day_1: Date, equalto day_2: Date) -> Bool {
         calendar.isDate(day_1, equalTo: day_2, toGranularity: .month)
+    }
+    
+    /// isCurrentMonth
+    /// - Parameters:
+    ///   - day_1: The first comparator
+    ///   - day_2: The second comparator
+    /// - Returns: Whether these two days are same
+    public func isSameDay(is day_1: Date, equalto day_2: Date) -> Bool {
+        calendar.isDate(day_1, inSameDayAs: day_2)
     }
     
     public func adjacentThreeMonths(oneDay: Date) -> [Date] {

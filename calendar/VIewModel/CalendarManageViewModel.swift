@@ -21,8 +21,20 @@ class CalendarManageViewModel: ObservableObject {
         model.daySet_Series
     }
     
+    var TopTextDate: String {
+        model.locatedDay.getStringDate()
+    }
+    
+    var mode: ModeType {
+        model.mode
+    }
+    
     func choose(_ day: DayModel) {
         model.choose(day)
+    }
+    
+    func swithMode(_ mode: ModeType) {
+        model.swithMode(mode)
     }
     
 }

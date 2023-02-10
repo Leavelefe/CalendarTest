@@ -24,18 +24,18 @@ struct CalendarView: View {
     @ObservedObject var viewModel: CalendarManageViewModel
     var days: Array<String> = ["今", "02", "03", "04", "05", "06", "07"]
     var weeks: Array<String> = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
-    @State var dayOrMonth:Bool = true
+    
     var body: some View {
         VStack {
             HStack {
-                Text("2023年2月")
+                Text(viewModel.TopTextDate)
                 Spacer()
                 week
                 Text("｜").padding(.horizontal, -10.0)
                 month
             }
             .padding(.horizontal)
-            LazyVGrid(columns: [GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem(), GridItem()]) {
+            LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 30)), count: 7), spacing: 0) {
                 ForEach(weeks[0..<7], id: \.self) { weekday in
                     Text(weekday).font(.system(size: 10)).foregroundColor(.gray)
                 }
@@ -53,10 +53,11 @@ struct CalendarView: View {
     }
     
     var week: some View {
-        Button{ dayOrMonth = !dayOrMonth } label: { Text("周") }
+        Button{ viewModel.swithMode(.Week) } label: { Text("周") }.foregroundColor(viewModel.mode == .Week ? .black : .gray)
     }
     var month: some View {
-        Button{ dayOrMonth = !dayOrMonth } label: { Text("月") }
+        Button{viewModel.swithMode(.Month)} label: { Text("月") }
+            .foregroundColor(viewModel.mode == .Week ? .gray : .black)
     }
 }
 
@@ -67,18 +68,31 @@ struct CircleView: View {
     var body: some View {
         ZStack {
             let circleShape = Circle()
+            let textData = day.isToday ? "今" : String(day.date.get(.day))
+            let textColor: Color = resolvingTextColor()
+            let backgroundColorSetting = resolvingBackgroundColorSetting()
             
-            if day.picked {
-                circleShape.foregroundColor(.blue)
-                Text(String(day.date.get(.day)))
-                    .foregroundColor(.white)
-            } else {
-                circleShape.foregroundColor(.white)
-                Text(String(day.date.get(.day)))
-                    .foregroundColor(.black)
-            }
+            circleShape.foregroundColor(backgroundColorSetting)
+            Text(textData)
+                .foregroundColor(textColor)
         }
         .padding(.horizontal, 7.0)
+    }
+    
+    func resolvingBackgroundColorSetting() -> Color {
+        var backgroudColor: Color = day.isToday ? .mint : .white
+        if day.picked {
+            backgroudColor = .blue
+        }
+        return backgroudColor
+    }
+    
+    func resolvingTextColor() -> Color {
+        var textColor: Color = day.picked ? .white : .black
+        if !day.isCurrentMonth {
+            textColor = .gray
+        }
+        return textColor
     }
     
 }
