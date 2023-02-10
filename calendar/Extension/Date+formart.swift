@@ -21,4 +21,10 @@ extension Date {
     func get(_ component: Calendar.Component, calendar: Calendar = myCalendar.calendar) -> Int {
         return calendar.component(component, from: self)
     }
+    
+    func getStringID() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        return formatter.string(from: self)
+    }
 }

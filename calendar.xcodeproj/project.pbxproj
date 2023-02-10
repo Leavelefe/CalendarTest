@@ -61,6 +61,7 @@
 		9D13B7092990957B008669D7 /* calendar */ = {
 			isa = PBXGroup;
 			children = (
+				9D13B75B2995F03C008669D7 /* View */,
 				9D13B7562994BD20008669D7 /* Singleton */,
 				9D13B75329936F34008669D7 /* Cell */,
 				9D13B75229936D13008669D7 /* Extension */,
@@ -120,6 +121,13 @@
 				9D13B7572994BD60008669D7 /* SystemCalendar.swift */,
 			);
 			path = Singleton;
+			sourceTree = "<group>";
+		};
+		9D13B75B2995F03C008669D7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

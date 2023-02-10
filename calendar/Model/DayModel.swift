@@ -11,12 +11,15 @@ import Foundation
 /// Only Delare day strcture data
 /// Haven't involve bussiness data
 ///
-struct DayModel {
-    private(set) var picked: Bool = false
-    private(set) var isToday: Bool = false
-    private(set) var toDO: Bool = false
+struct DayModel: Identifiable {
+    var id: Int
+    var picked: Bool = false
+    var isToday: Bool = false
+    var toDO: Bool = false
     //Whether this day belongs to current display month
-    private(set) var isCurrentMonth: Bool = false
+    var isCurrentMonth: Bool = false
+    
+    var date: Date
     
     //init
 //    init() {

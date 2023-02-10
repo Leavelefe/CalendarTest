@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    let calendarTopViewModel = CalendarManageViewModel()
     var body: some View {
         VStack {
-            CalendarView()
+            CalendarView(viewModel: calendarTopViewModel)
             Index()
             buffer()
         }
@@ -20,13 +21,14 @@ struct ContentView: View {
 
 /// Part of the logic and var retained in the CalendarView will be put into the Model and ViewModel respectively
 struct CalendarView: View {
+    @ObservedObject var viewModel: CalendarManageViewModel
     var days: Array<String> = ["今", "02", "03", "04", "05", "06", "07"]
     var weeks: Array<String> = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     @State var dayOrMonth:Bool = true
     var body: some View {
         VStack {
             HStack {
-                Text("2023年3月")
+                Text("2023年2月")
                 Spacer()
                 week
                 Text("｜").padding(.horizontal, -10.0)
@@ -37,9 +39,14 @@ struct CalendarView: View {
                 ForEach(weeks[0..<7], id: \.self) { weekday in
                     Text(weekday).font(.system(size: 10)).foregroundColor(.gray)
                 }
-                ForEach(days[0..<7], id: \.self) { day in
-                    CircleView(content: day)
+                ForEach(viewModel.days) { day in
+                    CircleView(day: day).onTapGesture {
+                        viewModel.choose(day)
+                    }
                 }
+//                ForEach(days[0..<7], id: \.self) { day in
+//                    CircleView(content: day)
+//                }
             }
             .padding(.horizontal, 5.0)
         }
@@ -55,26 +62,23 @@ struct CalendarView: View {
 
 /// Part of the logic and var retained in the CircleView will be put into the Model and ViewModel respectively
 struct CircleView: View {
-    @State var isChosen: Bool = false
-    var content: String
+    let day: DayModel
+    
     var body: some View {
         ZStack {
             let circleShape = Circle()
             
-            if isChosen {
+            if day.picked {
                 circleShape.foregroundColor(.blue)
-                Text(content)
+                Text(String(day.date.get(.day)))
                     .foregroundColor(.white)
             } else {
                 circleShape.foregroundColor(.white)
-                Text(content)
+                Text(String(day.date.get(.day)))
                     .foregroundColor(.black)
             }
         }
         .padding(.horizontal, 7.0)
-        .onTapGesture {
-            isChosen = !isChosen
-        }
     }
     
 }
@@ -121,11 +125,13 @@ struct Index: View {
 
 struct buffer: View {
     var body: some View {
-        TabView {
+        ScrollView {
                     Text("First")
                     Text("Second")
                     Text("Third")
                     Text("Fourth")
+            Text("hi")
+            
                 }
                 .tabViewStyle(PageTabViewStyle())
     }

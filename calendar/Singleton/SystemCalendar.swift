@@ -17,7 +17,7 @@ struct SystemCalendar{
     public var calendar: Calendar = Calendar(identifier: .gregorian)
     init() {
         //Monday should be the first day in a week
-        calendar.firstWeekday = 3
+        calendar.firstWeekday = 2
     }
     
     
@@ -71,6 +71,10 @@ struct SystemCalendar{
         
         let days = self.generateDays( inside: DateInterval(start: weekInterval.start, end: weekInterval.end), matching: DateComponents(hour: 0, minute: 0, second: 0))
         return days
+    }
+    
+    public func isCurrentMonth(is day_1: Date, equalto day_2: Date) -> Bool{
+        calendar.isDate(day_1, equalTo: day_2, toGranularity: .month)
     }
     
     public func adjacentThreeMonths(oneDay: Date) -> [Date] {
