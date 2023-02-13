@@ -14,7 +14,16 @@ struct CalendarModel {
     private(set) var locatedDay: Date
     
     /// 1 - Monday 2-Tueday ......
-    private(set) var locatedIndex: Int?
+    private(set) var locatedIndex: Int? {
+        get {
+            let locatedIndices = daySet_Series.indices.filter({daySet_Series[$0].picked})
+            return locatedIndices.oneAndOneOnly
+        }
+        
+        set {
+            
+        }
+    }
     
     
     //Mark: Store structure under construction
@@ -44,6 +53,8 @@ struct CalendarModel {
     }
     
     //Mark: Under Construction
+      //Month Status picked need be set to week, in that case, the mode need be changed
+      //
 //    private func getLocatedIndex(date: Date) -> Int {
 //        date.get(.weekday) <= 1 ? 7 - date.get(.weekday) : date.get(.weekday) - 1
 //    }
@@ -57,6 +68,9 @@ struct CalendarModel {
                 locatedIndex = chooseIndex
                 daySet_Series[chooseIndex].picked.toggle()
                 locatedDay =  daySet_Series[chooseIndex].date
+//                if mode == .Month {
+//                    self.swithMode(.Week)
+//                }
             } else {
                 locatedIndex = chooseIndex
                 daySet_Series[chooseIndex].picked.toggle()

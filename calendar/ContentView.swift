@@ -11,9 +11,9 @@ struct ContentView: View {
     let calendarTopViewModel = CalendarManageViewModel()
     var body: some View {
         VStack {
-            CalendarView(viewModel: calendarTopViewModel)
+            CalendarView(viewModel: calendarTopViewModel).layoutPriority(100)
             Index()
-            buffer()
+            buffer().layoutPriority(10)
         }
     }
 }
@@ -42,22 +42,37 @@ struct CalendarView: View {
                 ForEach(viewModel.days) { day in
                     CircleView(day: day).onTapGesture {
                         viewModel.choose(day)
+                        viewModel.swithMode(.Week)
                     }
                 }
 //                ForEach(days[0..<7], id: \.self) { day in
 //                    CircleView(content: day)
 //                }
             }
-            .padding(.horizontal, 5.0)
+            .padding(.horizontal)
+            //.layoutPriority(100)
+            .transition(.testAction)
+            Divider()
         }
     }
     
     var week: some View {
-        Button{ viewModel.swithMode(.Week) } label: { Text("周") }.foregroundColor(viewModel.mode == .Week ? .black : .gray)
+        Button( action: {
+            withAnimation {
+                viewModel.swithMode(.Week) }
+        }){
+            Text("周")
+                .foregroundColor(viewModel.mode == .Week ? .black : .gray)
+        }
     }
     var month: some View {
-        Button{viewModel.swithMode(.Month)} label: { Text("月") }
-            .foregroundColor(viewModel.mode == .Week ? .gray : .black)
+        Button( action: {
+            withAnimation {
+                viewModel.swithMode(.Month) }
+        }){
+            Text("月")
+                .foregroundColor(viewModel.mode == .Week ? .gray : .black)
+        }
     }
 }
 
@@ -66,6 +81,7 @@ struct CircleView: View {
     let day: DayModel
     
     var body: some View {
+        
         ZStack {
             let circleShape = Circle()
             let textData = day.isToday ? "今" : String(day.date.get(.day))
@@ -76,7 +92,7 @@ struct CircleView: View {
             Text(textData)
                 .foregroundColor(textColor)
         }
-        .padding(.horizontal, 7.0)
+        .padding( 5.0)
     }
     
     func resolvingBackgroundColorSetting() -> Color {

@@ -11,11 +11,11 @@ import Foundation
 class CalendarManageViewModel: ObservableObject {
     static let weekDays =  ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     
-    static func createCalendar() -> CalendarModel {
+    private static func createCalendar() -> CalendarModel {
         CalendarModel()
     }
     
-    @Published private var model: CalendarModel = createCalendar()
+    @Published private var model = createCalendar()
     
     var days: Array<DayModel> {
         model.daySet_Series
