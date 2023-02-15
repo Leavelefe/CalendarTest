@@ -37,4 +37,8 @@ class CalendarManageViewModel: ObservableObject {
         model.swithMode(mode)
     }
     
+    func swipeMonthOrWeek(_ direction: SwipeGesture.Direction) {
+        model.changeMonthOrWeek(direction)
+    }
+    
 }

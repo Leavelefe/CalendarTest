@@ -18,6 +18,10 @@
 		9D13B75A2994F695008669D7 /* Date+formart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B7592994F695008669D7 /* Date+formart.swift */; };
 		9D13B75D2999D0A8008669D7 /* Anytransition+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13B75C2999D0A8008669D7 /* Anytransition+format.swift */; };
 		9DBA53C8299A1AB600CDE066 /* Array+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C7299A1AB600CDE066 /* Array+format.swift */; };
+		9DBA53CA299B5C6800CDE066 /* StockFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */; };
+		9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */; };
+		9DBA53CE299B791400CDE066 /* NewStockInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CD299B791400CDE066 /* NewStockInfo.swift */; };
+		9DBA53D0299CADF100CDE066 /* CalendarWeekListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		9D13B7592994F695008669D7 /* Date+formart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+formart.swift"; sourceTree = "<group>"; };
 		9D13B75C2999D0A8008669D7 /* Anytransition+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Anytransition+format.swift"; sourceTree = "<group>"; };
 		9DBA53C7299A1AB600CDE066 /* Array+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+format.swift"; sourceTree = "<group>"; };
+		9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFinancialView.swift; sourceTree = "<group>"; };
+		9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcnomicStaticView.swift; sourceTree = "<group>"; };
+		9DBA53CD299B791400CDE066 /* NewStockInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockInfo.swift; sourceTree = "<group>"; };
+		9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 			children = (
 				9D13B7502993370B008669D7 /* DayModel.swift */,
 				9D13B75429937408008669D7 /* CalendarModel.swift */,
+				9DBA53CD299B791400CDE066 /* NewStockInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +126,8 @@
 		9D13B75329936F34008669D7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */,
+				9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 		9D13B75B2995F03C008669D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,11 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DBA53D0299CADF100CDE066 /* CalendarWeekListView.swift in Sources */,
 				9D13B7582994BD60008669D7 /* SystemCalendar.swift in Sources */,
 				9D13B7512993370B008669D7 /* DayModel.swift in Sources */,
+				9DBA53CA299B5C6800CDE066 /* StockFinancialView.swift in Sources */,
 				9D13B75529937409008669D7 /* CalendarModel.swift in Sources */,
 				9D13B70D2990957B008669D7 /* ContentView.swift in Sources */,
+				9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */,
 				9D13B75D2999D0A8008669D7 /* Anytransition+format.swift in Sources */,
+				9DBA53CE299B791400CDE066 /* NewStockInfo.swift in Sources */,
 				9D13B75A2994F695008669D7 /* Date+formart.swift in Sources */,
 				9D13B70B2990957B008669D7 /* calendarApp.swift in Sources */,
 				9DBA53C8299A1AB600CDE066 /* Array+format.swift in Sources */,

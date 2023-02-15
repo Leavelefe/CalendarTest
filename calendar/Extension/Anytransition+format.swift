@@ -9,9 +9,10 @@ import SwiftUI
 
 extension AnyTransition {
     static var testAction: AnyTransition {
-        let insertion = AnyTransition.move(edge: .trailing)
+        let insertion = AnyTransition.move(edge: .bottom)
             .combined(with: opacity)
-        let removal = AnyTransition.scale
+        let removal = AnyTransition
+            .slide
             .combined(with: opacity)
         return .asymmetric(insertion: insertion, removal: removal)
     }

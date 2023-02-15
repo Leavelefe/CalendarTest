@@ -41,7 +41,7 @@ struct CalendarModel {
         //print(daySet)
         //Mark: daySet_Series Detial need be filled later
         for index in 0..<daySet.count {
-            let isCurrentMonth: Bool = myCalendar.isCurrentMonth(is: daySet[index], equalto: locatedDay)
+            let isCurrentMonth: Bool = mode == .Month ? myCalendar.isCurrentMonth(is: daySet[index], equalto: locatedDay) : true
             let isToday: Bool = myCalendar.isSameDay(is: daySet[index], equalto: today)
             let isSelectedDay: Bool = myCalendar.isSameDay(is: daySet[index], equalto: updateDate)
             if isSelectedDay {
@@ -82,6 +82,25 @@ struct CalendarModel {
     mutating func swithMode(_ newMode: ModeType) {
         let pickDate = locatedDay
         self = .init(beigningMode: newMode, updateDate: pickDate)
+    }
+    
+    
+    /// Swipe to the next or previos month or week
+    /// - Parameter newMode:
+    mutating func changeMonthOrWeek(_ direction: SwipeGesture.Direction) {
+        if mode == .Week {
+            if direction == .right {
+                self = .init(beigningMode: .Week, updateDate: myCalendar.previousWeek(locatedDay))
+            } else if direction == .left {
+                self = .init(beigningMode: .Week, updateDate: myCalendar.nextWeek(locatedDay))
+            }
+        } else {
+            if direction == .right {
+                self = .init(beigningMode: .Month, updateDate: myCalendar.previousMonth(locatedDay))
+            } else if direction == .left {
+                self = .init(beigningMode: .Month, updateDate: myCalendar.nextMonth(locatedDay))
+            }
+        }
     }
 }
 

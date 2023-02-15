@@ -53,8 +53,9 @@ struct SystemCalendar {
         guard
             let monthInterval = calendar.dateInterval(of: .month, for: oneDay),
             let monthFirstWeek = calendar.dateInterval(of: .weekOfMonth, for: monthInterval.start),
-            let monthLastWeek = calendar.dateInterval(of: .weekOfMonth, for: monthInterval.end)
+            let monthLastWeek = calendar.dateInterval(of: .weekOfMonth, for: monthInterval.end - 1)
         else { return [] }
+        
         
         return self.generateDays( inside: DateInterval(start: monthFirstWeek.start, end: monthLastWeek.end), matching: DateComponents(hour: 0, minute: 0, second: 0)
         )
@@ -116,6 +117,83 @@ struct SystemCalendar {
         return dates
     }
     
+    private func getPreviousDay(_ nowDay: Date) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        let lastTime: TimeInterval = -(24*60*60) // 往前减去一天的秒数，昨天
+//        let nextTime: TimeInterval = 24*60*60 // 这是后一天的时间，明天
+        
+        let lastDate = nowDay.addingTimeInterval(lastTime)
+        return lastDate
+    }
+    
+    private func getNextDay(_ nowDay: Date) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        //let lastTime: TimeInterval = -(24*60*60) // 往前减去一天的秒数，昨天
+        let nextTime: TimeInterval = 24*60*60 // 这是后一天的时间，明天
+        
+        let nextDate = nowDay.addingTimeInterval(nextTime)
+        return nextDate
+    }
+    
+    private func startOfCurrentMonth(_ nowDay: Date) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: nowDay)
+        let startOfMonth = calendar.date(from: components)
+        
+        return startOfMonth!
+    }
+    
+    private func endOfCurrentMonth(_ nowDay: Date) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        
+        let calendar = Calendar.current
+        var components = DateComponents()
+            components.month = 1
+            components.second = -1
+            //components.day = -1
+        //startOfCurrentMonth
+        let currentMonth = calendar.dateComponents([.year, .month], from: nowDay)
+        let startOfMonth = calendar.date(from: currentMonth)
+        let endOfMonth = calendar.date(byAdding: components, to: startOfMonth!)
+        
+        return endOfMonth!
+    }
+    
+    public func nextMonth(_ nowDay: Date) -> Date {
+        let endOfCurrentMonth: Date = self.endOfCurrentMonth(nowDay)
+        let nextMonthFirstDate: Date = self.getNextDay(endOfCurrentMonth)
+        
+        return nextMonthFirstDate
+    }
+    
+    public func previousMonth(_ nowDay: Date) -> Date {
+        let startOfCurrentMonth: Date = self.startOfCurrentMonth(nowDay)
+        let previousMonthLastDate: Date = self.getPreviousDay(startOfCurrentMonth)
+        
+        return previousMonthLastDate
+    }
+    
+    public func nextWeek(_ nowDay: Date) -> Date {
+        let endOfCurrentWeek: Date = self.weekDays(oneDay: nowDay).last!
+        let nextWeekFirstDate: Date = self.getNextDay(endOfCurrentWeek)
+        
+        return nextWeekFirstDate
+    }
+    
+    public func previousWeek(_ nowDay: Date) -> Date {
+        let startOfCurrentWeek: Date = self.weekDays(oneDay: nowDay).first!
+        let previousWeekLastDate: Date = self.getPreviousDay(startOfCurrentWeek)
+        
+        return previousWeekLastDate
+    }
 //    public var adjacentThreeWeeks(oneDay: Date) -> [Date] {
 //        calendar.generateDates( inside: interval,matching: DateComponents(hour: 0, minute: 0, second:0, weekday: 2) )
 //    }
