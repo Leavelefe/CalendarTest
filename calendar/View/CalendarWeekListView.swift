@@ -11,12 +11,17 @@ struct CalendarWeekListView<Item, ItemView>: View where ItemView : View, Item : 
     var items: [Item]
     var content: (Item) -> ItemView
     
+    init(items: [Item], @ViewBuilder content: @escaping (Item) -> ItemView) {
+        self.items = items
+        self.content = content
+    }
+    
     var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 30), spacing: 0), count: 7), spacing: 0) {
             ForEach(items) { item in
                 content(item)
             }
-        }
+        }//.transition(.testAction)
     }
 }
 

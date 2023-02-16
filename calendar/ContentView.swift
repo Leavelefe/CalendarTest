@@ -78,19 +78,52 @@ struct CalendarView: View {
             
             CalendarWeekListView(items: viewModel.days) {
                 day in
-                CircleView(day: day).onTapGesture {
+                CircleView(day: day)
+                    .padding(2)
+                    //.transition(.testAction)
+                    .onTapGesture {
                     viewModel.choose(day)
                     viewModel.swithMode(.Week)
                     showAnimation.toggle()
-                }
+                    }.animation(nil)
                     
-            }.onSwipe{ direction in
+            }
+            .onSwipe{ direction in
                 viewModel.swipeMonthOrWeek(direction)
                 showAnimation.toggle()
-            }.animation( .easeInOut(duration: 1), value: showAnimation)
+            }
+            //.transition(.testAction)
             //.animation(.ripple())
+            
+            if viewModel.mode == .Month {
+                ZStack{
+                    HStack {
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 5).frame(height: 30).foregroundColor(.white)
+                        Spacer()
+                    }.onTapGesture {
+                        viewModel.swithMode(.Week)
+                        showAnimation.toggle()
+                    }
+                    HStack {
+                        Spacer()
+                        RoundedRectangle(cornerRadius: 5).frame(width: 20, height: 3).foregroundColor(.gray)
+                        Spacer()
+                    }
+                    HStack {
+                        Text("查看今天").foregroundColor(.blue).padding(.leading)
+                        Spacer()
+                    }.onTapGesture {
+                        viewModel.BackToToday()
+                        showAnimation.toggle()
+                    }
+                }
+                
+            }
             Divider()
         }
+        //.transition(.testAction)
+        .animation( .easeInOut(duration: 0.5), value: showAnimation)
     }
     
     var week: some View {
@@ -118,7 +151,7 @@ struct CircleView: View {
     let day: DayModel
     
     var body: some View {
-        
+        let circleColor: Color = day.toDO ? .white : .mint
         ZStack {
             let circleShape = Circle()
             let textData = day.isToday ? "今" : String(day.date.get(.day))
@@ -128,8 +161,11 @@ struct CircleView: View {
             circleShape.foregroundColor(backgroundColorSetting)
             Text(textData)
                 .foregroundColor(textColor)
-        }
-        .padding( 5.0)
+        }.overlay(Circle().foregroundColor(circleColor).frame(height: 7).offset(y: 10) ,alignment: .bottom).padding(8)
+//            Spacer()
+//
+//
+//            Circle().scale(0.3).foregroundColor(circleColor).padding(0)
     }
     
     func resolvingBackgroundColorSetting() -> Color {

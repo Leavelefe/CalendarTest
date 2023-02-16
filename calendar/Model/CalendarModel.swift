@@ -102,6 +102,10 @@ struct CalendarModel {
             }
         }
     }
+    
+    mutating func BackToToday() {
+        self = .init()
+    }
 }
 
 enum ModeType{

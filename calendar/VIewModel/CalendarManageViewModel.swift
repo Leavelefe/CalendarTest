@@ -41,4 +41,8 @@ class CalendarManageViewModel: ObservableObject {
         model.changeMonthOrWeek(direction)
     }
     
+    func BackToToday() {
+        model.BackToToday()
+    }
+    
 }
