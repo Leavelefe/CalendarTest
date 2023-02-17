@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     let calendarTopViewModel = CalendarManageViewModel()
+    
+    let calendarEventManager = CalendarEventManager()
     var body: some View {
         VStack {
             CalendarView(viewModel: calendarTopViewModel).layoutPriority(100)
             Index()
-            buffer().layoutPriority(10)
+            buffer(viewModel: calendarEventManager).layoutPriority(10)
         }
     }
 }
@@ -227,16 +229,13 @@ struct Index: View {
 }
 
 struct buffer: View {
+    @ObservedObject var viewModel: CalendarEventManager
     var body: some View {
         ScrollView {
-                    Text("First")
-                    Text("Second")
-                    Text("Third")
-                    Text("Fourth")
-            Text("hi")
-            
-                }
-                .tabViewStyle(PageTabViewStyle())
+            ForEach(viewModel.infos) { info in
+                StockFinancialView(info: info)
+            }
+        }
     }
 }
 struct ContentView_Previews: PreviewProvider {

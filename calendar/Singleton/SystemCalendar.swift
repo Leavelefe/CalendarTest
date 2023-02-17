@@ -118,8 +118,6 @@ struct SystemCalendar {
     }
     
     private func getPreviousDay(_ nowDay: Date) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
         
         let lastTime: TimeInterval = -(24*60*60) // 往前减去一天的秒数，昨天
 //        let nextTime: TimeInterval = 24*60*60 // 这是后一天的时间，明天
@@ -128,20 +126,14 @@ struct SystemCalendar {
         return lastDate
     }
     
-    private func getNextDay(_ nowDay: Date) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        
-        //let lastTime: TimeInterval = -(24*60*60) // 往前减去一天的秒数，昨天
-        let nextTime: TimeInterval = 24*60*60 // 这是后一天的时间，明天
+    public func getNextDay(_ nowDay: Date) -> Date {
+        let nextTime: TimeInterval = 24*60*60 //
         
         let nextDate = nowDay.addingTimeInterval(nextTime)
         return nextDate
     }
     
     private func startOfCurrentMonth(_ nowDay: Date) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
         
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month], from: nowDay)
@@ -151,8 +143,6 @@ struct SystemCalendar {
     }
     
     private func endOfCurrentMonth(_ nowDay: Date) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
         
         let calendar = Calendar.current
         var components = DateComponents()

@@ -8,73 +8,157 @@
 import SwiftUI
 
 struct StockFinancialView: View {
+    let info: NewStockInfo
+    
     var body: some View {
-        ZStack{
-            VStack {
-                TitleView()
-                Stockview()
+        VStack(spacing: 5){
+            DateView(chooseDay: info.id)
+                //No Event status
+            if info.possessData == 0 {
+                StockStyleStack {
+                    VStack {
+                        Spacer()
+                        HStack {
+                            Image(systemName: "square.and.pencil")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                                .foregroundColor(.blue)
+                        }
+                        HStack {
+                            Spacer()
+                            Image(systemName: "plus.circle")
+                                .resizable()
+                                .frame(width: 13, height: 13)
+                                .foregroundColor(.blue)
+                            
+                            Text("您可以添加事件").font(.system(size: 13))
+                                .foregroundColor(.blue)
+                            Spacer()
+                        }
+                        Spacer()
+                    }.frame(height: 150)
+                }
+                
+            } else {
+                ForEach(info.stockList!) {
+                    stockList in
+                    StockStyleStack {
+                        VStack {
+                            TitleView()
+                            Stockview()
+                        }
+                    }
+                }
             }
-        }.background(Color.blue)
-        .padding()
+        }
+    }
+}
+
+
+struct DateView: View {
+    let chooseDay: Date
+    
+    var body: some View {
+        if myCalendar.isSameDay(is: chooseDay, equalto: Date()) {
+            HStack {
+                HStack (spacing: 0){
+                    Text("今日待办").font(.system(size: 24, weight: .light))
+                }
+                Spacer()
+            }.padding(.horizontal)
+            
+        } else {
+            HStack {
+                HStack (spacing: 0){
+                    Text(String(chooseDay.get(.day))).font(.system(size: 20, weight: .medium))
+                    Text("｜").font(.system(size: 15, weight:.light))
+                    Text(String(chooseDay.get(.month))).font(.system(size: 13, weight:.light))
+                    Text(chooseDay.getWeekDay()).font(.system(size: 13, weight:.light))
+                }
+                Spacer()
+            }.padding(.horizontal)
+        }
     }
 }
 
 struct TitleView: View {
     var body: some View {
         HStack {
+            //1.其他
+            //2.休市提醒
             Image(systemName: "e.square")
                 .foregroundColor(.red)
                 .padding(.leading, 7)
                 .padding(.vertical, 15)
-            Text("TestData")
+            //1. 新股新债
+            //2. 休市提醒
+            Text("新股新债").font(.system(size: 15))
             ZStack {
-                Rectangle().strokeBorder(.red).frame(width: 40, height: 25)
-                Text("申购")
-            }.foregroundColor(.red)
+                Rectangle().strokeBorder(.orange).frame(width: 30, height: 20)
+                //1. 申购
+                //2. 首发上市
+                //3. 无
+                Text("申购").font(.system(size: 13, weight:.light))
+            }.foregroundColor(.orange)
             Spacer()
         }
     }
 }
 
 struct Stockview:View {
-    @State private var isShowingBottomView = false
     
     var body: some View {
         VStack {
             HStack {
                 //Stock Title
-                Text("中润申购")
+                Text("中润申购").font(.system(size: 17, weight:.medium))
                 //Stock ID
-                Text("123456")
-                ZStack {
-                    Text("・新股")
-                }.foregroundColor(.red)
+                Text("123456").font(.system(size: 17, weight:.medium))
+                //1.新股
+                //2.新债
+                //3.无
+                Text("・新股").font(.system(size: 13, weight:.light))
+                    .foregroundColor(.orange)
                 Spacer()
                 Image(systemName: "calendar.badge.plus")
                     .foregroundColor(.gray)
-                    .onTapGesture {
-                        self.isShowingBottomView.toggle()
-                    }
+//                    .onTapGesture {
+//                        self.isShowingBottomView.toggle()
+//                    }
                 
             }.padding([.horizontal], 30)
             
-            HStack{
-                Text("发行价 100元")
+            HStack(alignment: .bottom){
+                Text("发行价").font(.system(size: 15))
+                Text("100").font(.system(size: 20, weight:.medium))
+                    .foregroundColor(.red)
+                Text("元").font(.system(size: 15))
                 Spacer()
             }.padding(.top, -5)
             .padding(.leading, 30)
             .padding(.bottom, 5)
 
         }
-        .background(BottomViewRepresentable().frame(width: 0, height: 0))
     }
 }
 
-struct StockFinancialView_Previews: PreviewProvider {
-    static var previews: some View {
-        StockFinancialView()
+
+
+struct StockStyleStack<Content>: View where Content: View {
+    let content: () -> Content
+        
+    var body: some View {
+        AnyView(content()
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 5.0))
+            .shadow(radius: 1, x: 0, y: 0)
+            .padding(.horizontal)
+            .padding(.bottom)
+        )
     }
 }
+
+
 
 class BottomViewController: UIViewController {
     let bottomView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))

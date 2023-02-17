@@ -9,23 +9,25 @@ import Foundation
 
 
 struct NewStockInfo: Identifiable {
-    //DateString format
-    var id: String
+    // Date should be id for NewStockInfo
+    private(set) var id: Date
     // 0 - 无
-    // 1 - 新股上市
-    // 2 - 新股申购
-    // 3 - 休市提醒
-    // 4 - 新债上市
-    // 5 - 新债申购
-    private(set) var stockType: Int
-    private(set) var stockList: [NewStockItem]
+    // 1 - 有
+    private(set) var possessData: Int
+    private(set) var stockList: [NewStockItem]?
 }
 
 struct NewStockItem: Identifiable {
     //Stock ID
     var id: String?
+    //YYYYMMDD
+    var day: String
     var stockName: String?
     var stockPrice: Float?
+    // 0 - 无
+    // 1 - 新股上市 4 - 新债上市
+    // 2 - 新股申购 5 - 新债申购
+    // 3 - 休市提醒
     var stockType: Int?
     
 }
