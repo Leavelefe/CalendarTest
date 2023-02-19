@@ -20,6 +20,7 @@
 		9D2927DE299F29BF00717FFA /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927DD299F29BF00717FFA /* CalendarEvent.swift */; };
 		9D2927E3299F508200717FFA /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927E2299F508200717FFA /* JSONData.swift */; };
 		9D2927E5299F592500717FFA /* CalendarEventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927E4299F592500717FFA /* CalendarEventManager.swift */; };
+		9D2927E729A25D7B00717FFA /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927E629A25D7B00717FFA /* FilterButton.swift */; };
 		9DBA53C8299A1AB600CDE066 /* Array+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C7299A1AB600CDE066 /* Array+format.swift */; };
 		9DBA53CA299B5C6800CDE066 /* StockFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */; };
 		9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */; };
@@ -42,6 +43,7 @@
 		9D2927DD299F29BF00717FFA /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		9D2927E2299F508200717FFA /* JSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONData.swift; sourceTree = "<group>"; };
 		9D2927E4299F592500717FFA /* CalendarEventManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventManager.swift; sourceTree = "<group>"; };
+		9D2927E629A25D7B00717FFA /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		9DBA53C7299A1AB600CDE066 /* Array+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+format.swift"; sourceTree = "<group>"; };
 		9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFinancialView.swift; sourceTree = "<group>"; };
 		9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcnomicStaticView.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */,
 				9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */,
+				9D2927E629A25D7B00717FFA /* FilterButton.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				9D13B75529937409008669D7 /* CalendarModel.swift in Sources */,
 				9D13B70D2990957B008669D7 /* ContentView.swift in Sources */,
 				9D2927DE299F29BF00717FFA /* CalendarEvent.swift in Sources */,
+				9D2927E729A25D7B00717FFA /* FilterButton.swift in Sources */,
 				9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */,
 				9D13B75D2999D0A8008669D7 /* Anytransition+format.swift in Sources */,
 				9DBA53CE299B791400CDE066 /* NewStockInfo.swift in Sources */,

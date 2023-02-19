@@ -8,6 +8,7 @@
 import Foundation
 
 class CalendarEventManager: ObservableObject {
+    
     private static func createCalendarEventManager() -> CalendarEvent {
         CalendarEvent()
     }
@@ -16,5 +17,13 @@ class CalendarEventManager: ObservableObject {
     
     var infos: Array<NewStockInfo> {
         model.stockInfolist
+    }
+    
+    var filterContent: Dictionary<String, Int> {
+        model.filter
+    }
+    
+    func switchTab() {
+        model.switchTab()
     }
 }

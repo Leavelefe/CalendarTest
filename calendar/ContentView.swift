@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             CalendarView(viewModel: calendarTopViewModel).layoutPriority(100)
-            Index()
+            Index(viewModel: calendarEventManager)
             buffer(viewModel: calendarEventManager).layoutPriority(10)
         }
     }
@@ -97,21 +97,23 @@ struct CalendarView: View {
             //.transition(.testAction)
             //.animation(.ripple())
             
-            if viewModel.mode == .Month {
-                ZStack{
-                    HStack {
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 5).frame(height: 30).foregroundColor(.white)
-                        Spacer()
-                    }.onTapGesture {
-                        viewModel.swithMode(.Week)
-                        showAnimation.toggle()
-                    }
-                    HStack {
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 5).frame(width: 20, height: 3).foregroundColor(.gray)
-                        Spacer()
-                    }
+            
+            ZStack{
+                HStack {
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 5).frame(height: 25).foregroundColor(.white)
+                    Spacer()
+                }.onTapGesture {
+                    viewModel.swithMode(viewModel.mode == .Month ? .Week : .Month)
+                    showAnimation.toggle()
+                }
+                HStack {
+                    Spacer()
+                    RoundedRectangle(cornerRadius: 5).frame(width: 20, height: 3).foregroundColor(.gray)
+                    Spacer()
+                }
+                
+                if viewModel.mode == .Month {
                     HStack {
                         Text("查看今天").foregroundColor(.blue).padding(.leading)
                         Spacer()
@@ -120,7 +122,6 @@ struct CalendarView: View {
                         showAnimation.toggle()
                     }
                 }
-                
             }
             Divider()
         }
@@ -190,8 +191,11 @@ struct CircleView: View {
 
 /// Part of the logic and var retained in the Index will be put into the Model and ViewModel respectively
 struct Index: View {
-    private let segmented = ["宏观财经","股票理财"]
+    @ObservedObject var viewModel: CalendarEventManager
+    
+    private let segmented = ["宏观财经", "股票理财"]
     @State private var selector = 1
+    @State private var showSelections: Bool = false
     var body: some View{
         VStack{
             HStack{
@@ -201,6 +205,7 @@ struct Index: View {
                             withAnimation {
                                 selector = index
                             }
+                            viewModel.switchTab()
                         }
                     }, label: {
                         if selector == segmented.firstIndex(of: name){
@@ -219,12 +224,43 @@ struct Index: View {
                 }
                 Spacer()
                 HStack{
-                    Image(systemName: "star")
-                    Text("筛选")
+                    if showSelections {
+                        Image(systemName: "xmark").font(.system(size: 12))
+                    } else {
+                        Image(systemName: "star").font(.system(size: 10))
+                            .padding(.trailing, -5)
+                        Text("筛选").font(.system(size: 11))
+                    }
                 }.foregroundColor(.blue)
+                    .onTapGesture {
+                        withAnimation {
+                            showSelections.toggle()
+                        }
+                    }
             }
             .padding()
+            if showSelections {
+                HStack {
+                    VStack {
+                        HStack {
+                            Text("默认订阅").padding().foregroundColor(.gray)
+                            Spacer()
+                        }
+                        HStack {
+                            LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 80), spacing: 0), count: 4), spacing: 10) {
+                                ForEach(Array(viewModel.filterContent), id: \.key) {
+                                    key, value in
+                                    FilterButton(selected: value == 1 ? true : false, content: key)
+                                }
+                            }
+                        }.padding(.bottom, 10)
+                    }
+                }
+            }
         }
+        .background(Color.white)
+        .clipShape(RoundedRectangle(cornerRadius: 1.0))
+        .shadow(radius: 1, x: 0, y: 0)
     }
 }
 
