@@ -129,7 +129,7 @@ struct TitleView: View {
             if chooseType == 3 {
                 Image(systemName: "calendar.badge.plus")
                     .foregroundColor(.gray)
-                    .padding([.horizontal], 30)
+                    .padding([.horizontal], 10)
             }
         }
     }

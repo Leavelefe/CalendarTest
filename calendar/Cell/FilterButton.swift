@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct FilterButton: View {
-    @State var selected: Bool
+    @StateObject var viewModel: CalendarEventManager
+    
     let content: String
+    let selected: Bool
     
     var body: some View {
         if selected {
             Button(content) {
-                selected.toggle()
+                viewModel.changeFilter(action: false, selectedTitle: content)
             }
             .frame(width: 80, height: 30)
             .font(.system(size: 15))
@@ -23,7 +25,7 @@ struct FilterButton: View {
             .foregroundColor(.white)
         } else {
             Button(content) {
-                selected.toggle()
+                viewModel.changeFilter(action: true, selectedTitle: content)
             }
             .frame(width: 80, height: 30)
             .font(.system(size: 15))
@@ -34,8 +36,4 @@ struct FilterButton: View {
     }
 }
 
-struct FilterButton_Previews: PreviewProvider {
-    static var previews: some View {
-        FilterButton(selected: true, content: "hhi")
-    }
-}
+

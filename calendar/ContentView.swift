@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
     let calendarTopViewModel = CalendarManageViewModel()
     
@@ -14,9 +15,9 @@ struct ContentView: View {
     var body: some View {
         VStack {
             CalendarView(viewModel: calendarTopViewModel).layoutPriority(100)
-            Index(viewModel: calendarEventManager)
-            buffer(viewModel: calendarEventManager).layoutPriority(10)
-        }
+            EventTabView(viewModel: calendarEventManager)
+            EventScrollView(viewModel: calendarEventManager).layoutPriority(10)
+        }.background(Color.gray.brightness(0.4))
     }
 }
 
@@ -125,6 +126,7 @@ struct CalendarView: View {
             }
             Divider()
         }
+        .background(Color.white)
         //.transition(.testAction)
         .animation( .easeInOut(duration: 0.5), value: showAnimation)
     }
@@ -189,88 +191,75 @@ struct CircleView: View {
     
 }
 
-/// Part of the logic and var retained in the Index will be put into the Model and ViewModel respectively
-struct Index: View {
-    @ObservedObject var viewModel: CalendarEventManager
-    
-    private let segmented = ["宏观财经", "股票理财"]
-    @State private var selector = 1
-    @State private var showSelections: Bool = false
-    var body: some View{
-        VStack{
-            HStack{
-                ForEach(segmented, id: \.self) { name in
-                    Button(action: {
-                        if let index = segmented.firstIndex(of: name){
-                            withAnimation {
-                                selector = index
-                            }
-                            viewModel.switchTab()
-                        }
-                    }, label: {
-                        if selector == segmented.firstIndex(of: name){
-                            Text(name)
-                                .font(.system(size: 18, weight: .bold))
-                                .overlay(LinearGradient(gradient:
-                                                            Gradient(colors: [.blue,.red, .yellow]),
-                                                            startPoint: .leading,
-                                                            endPoint: .trailing)
-                                    .frame(height: 6).offset(y: 4) ,alignment: .bottom).foregroundColor(.black)
-                        }else{
-                            Text(name)
-                                .foregroundColor(.gray)
-                        }
-                    })
-                }
-                Spacer()
-                HStack{
-                    if showSelections {
-                        Image(systemName: "xmark").font(.system(size: 12))
-                    } else {
-                        Image(systemName: "star").font(.system(size: 10))
-                            .padding(.trailing, -5)
-                        Text("筛选").font(.system(size: 11))
-                    }
-                }.foregroundColor(.blue)
-                    .onTapGesture {
-                        withAnimation {
-                            showSelections.toggle()
-                        }
-                    }
-            }
-            .padding()
-            if showSelections {
-                HStack {
-                    VStack {
-                        HStack {
-                            Text("默认订阅").padding().foregroundColor(.gray)
-                            Spacer()
-                        }
-                        HStack {
-                            LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 80), spacing: 0), count: 4), spacing: 10) {
-                                ForEach(Array(viewModel.filterContent), id: \.key) {
-                                    key, value in
-                                    FilterButton(selected: value == 1 ? true : false, content: key)
-                                }
-                            }
-                        }.padding(.bottom, 10)
-                    }
-                }
-            }
-        }
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 1.0))
-        .shadow(radius: 1, x: 0, y: 0)
-    }
-}
 
-struct buffer: View {
+struct EventScrollView: View {
     @ObservedObject var viewModel: CalendarEventManager
+    @State private var isLoading = false
+    @State private var isRefreshing = false
+    @State private var items = Array(0..<10)
+    
     var body: some View {
         ScrollView {
-            ForEach(viewModel.infos) { info in
-                StockFinancialView(info: info)
+            ScrollViewReader { scrollView in
+                if viewModel.showEco {
+                    ForEach(viewModel.ecoInfos) { info in
+                        EcnomicStaticView(info: info)
+                    }
+                } else {
+                    ForEach(viewModel.stockInfos) { info in
+                        StockFinancialView(info: info)
+                    }
+                }
+                GeometryReader { geo in
+                    Text("test")
+                        .foregroundColor(.red)
+                        .onAppear {
+                            print(geo.frame(in: .global).maxY)
+                            print(geo.size.height)
+                            print(UIScreen.main.bounds.height)
+                            if !isRefreshing && geo.frame(in: .global).maxY <= UIScreen.main.bounds.height {
+                                isRefreshing = true
+                                // 执行下拉刷新操作
+                                print("sadas")
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                    items.append(contentsOf: [20, 21, 22])
+                                    isRefreshing = false
+                                }
+                            }
+                        }
+                }
+                
             }
+        }
+    }
+    private func refreshControl() -> some View {
+        ZStack {
+            if isRefreshing {
+                ProgressView()
+            } else {
+                Image(systemName: "arrow.down")
+            }
+        }
+        .frame(width: 30, height: 30)
+        .foregroundColor(.blue)
+        .padding(.top, -50)
+        .opacity(isRefreshing ? 1.0 : 0.5)
+        .onTapGesture {
+            guard !isRefreshing else { return }
+            isRefreshing = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                items = Array(0..<10)
+                isRefreshing = false
+            }
+        }
+    }
+
+    private func loadMoreItems() {
+        guard !isLoading else { return }
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            items += Array(items.count..<items.count + 10)
+            isLoading = false
         }
     }
 }

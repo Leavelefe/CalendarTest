@@ -15,15 +15,29 @@ class CalendarEventManager: ObservableObject {
     
     @Published private var model = createCalendarEventManager()
     
-    var infos: Array<NewStockInfo> {
+    var stockInfos: Array<NewStockInfo> {
         model.stockInfolist
     }
     
-    var filterContent: Dictionary<String, Int> {
+    var ecoInfos: Array<NewEcoInfo> {
+        model.ecoInfolist
+    }
+    
+    var showEco: Bool {
+        model.tab == 0 ? true : false
+    }
+    
+    var filterContent: [(title: String, selected: Bool)] {
         model.filter
     }
     
     func switchTab() {
         model.switchTab()
+    }
+    
+    func changeFilter(action cancelOrSelect: Bool, selectedTitle title: String) {
+        //true: Set title to true
+        //false: Set title to false
+        model.changeFilter(cancelOrSelect, title)
     }
 }
