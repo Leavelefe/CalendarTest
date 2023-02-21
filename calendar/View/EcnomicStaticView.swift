@@ -49,6 +49,9 @@ struct EcnomicStaticView: View {
 
 struct EcoTitleView: View {
     let item: NewEcoItem
+    @State private var showingConfirmationSheet = false
+    @State private var date: Date?
+    @State private var textFieldString: String = ""
     
     var body: some View {
         HStack (spacing: 0) {
@@ -74,6 +77,35 @@ struct EcoTitleView: View {
                 .foregroundColor(.gray)
                 .padding(.trailing, 13)
                 .padding(.leading, 0)
+                .onTapGesture {
+                    showingConfirmationSheet = true
+                    date = Date()
+                }
+            //
+                .sheet(isPresented: $showingConfirmationSheet) {
+                    VStack {
+                        VStack(spacing: 0){
+                            HStack {
+                                Button("取消") {
+                                    
+                                }.padding()
+                                Spacer()
+                                Text("确认添加事件至系统日历")
+                                Spacer()
+                                Button("确认") {
+                                    
+                                }.padding()
+                            }
+                            List{
+                                TextField("\(item.title)", text: $textFieldString)
+                                DatePicker(selection: .constant(Date()), label: { Text("时间") })
+                                Text("重复")
+                                Text("提醒")
+                            }.listStyle(PlainListStyle())
+                        }
+                    }.presentationDetents([.fraction(0.3)])
+                        
+                }
         }
     }
 }

@@ -7,7 +7,19 @@
 
 import Foundation
 
-class CalendarEventManager: ObservableObject {
+class CalendarEventManager: ObservableObject, CalendarManagerDelegate {
+    lazy var firstViewModel: CalendarManageViewModel = {
+        let viewModel = CalendarManageViewModel()
+        viewModel.delegate = self
+        return viewModel
+    }()
+    /// Protocal
+    func CalendarManagerDidUpdateLocatedDate(_ viewModel: CalendarManageViewModel, locatedDate: Date) {
+        if model.selectedDate != locatedDate {
+            model.changeSelectedDate(locatedDate)
+        }
+    }
+    
     
     private static func createCalendarEventManager() -> CalendarEvent {
         CalendarEvent()

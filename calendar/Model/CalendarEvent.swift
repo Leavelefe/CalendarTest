@@ -180,6 +180,10 @@ struct CalendarEvent {
             }
         }
     }
+    
+    mutating func changeSelectedDate(_ selectedDate: Date) {
+        self = .init(tab: tab, selectedDate: selectedDate)
+    }
 }
 
     

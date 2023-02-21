@@ -8,14 +8,23 @@
 import Foundation
 /// Under Construction
 
+protocol CalendarManagerDelegate: AnyObject {
+    func CalendarManagerDidUpdateLocatedDate(_ viewModel: CalendarManageViewModel, locatedDate: Date)
+}
+
 class CalendarManageViewModel: ObservableObject {
     static let weekDays =  ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+    weak var delegate: CalendarManagerDelegate?
     
     private static func createCalendar() -> CalendarModel {
         CalendarModel()
     }
     
-    @Published private var model = createCalendar()
+    @Published private var model = createCalendar() {
+        didSet {
+            delegate?.CalendarManagerDidUpdateLocatedDate(self, locatedDate: model.locatedDay)
+        }
+    }
     
     var days: Array<DayModel> {
         model.daySet_Series

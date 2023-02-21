@@ -80,5 +80,6 @@ struct EventTabView: View {
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 1.0))
         .shadow(radius: 1, x: 0, y: 0)
+        .padding(.vertical, 10)
     }
 }

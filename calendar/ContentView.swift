@@ -9,15 +9,17 @@ import SwiftUI
 
 
 struct ContentView: View {
-    let calendarTopViewModel = CalendarManageViewModel()
     
-    let calendarEventManager = CalendarEventManager()
+    @StateObject var calendarEventManager = CalendarEventManager()
+    
     var body: some View {
-        VStack {
-            CalendarView(viewModel: calendarTopViewModel).layoutPriority(100)
+        VStack (spacing: 0){
+            CalendarView(viewModel: calendarEventManager.firstViewModel).layoutPriority(100)
             EventTabView(viewModel: calendarEventManager)
+                .background(Color.gray.brightness(0.4).opacity(1))
             EventScrollView(viewModel: calendarEventManager).layoutPriority(10)
-        }.background(Color.gray.brightness(0.4))
+                .background(Color.gray.brightness(0.4).opacity(1))
+        }
     }
 }
 
@@ -38,6 +40,7 @@ extension Weekday: Identifiable {
 /// Part of the logic and var retained in the CalendarView will be put into the Model and ViewModel respectively
 struct CalendarView: View {
     @ObservedObject var viewModel: CalendarManageViewModel
+    @State private var offset: CGFloat = 0
     
     var weeks: [Weekday] = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     
@@ -54,26 +57,7 @@ struct CalendarView: View {
                 month
             }
             .padding(.horizontal)
-//            LazyVGrid(columns: Array(repeating: GridItem(.adaptive(minimum: 30)), count: 7)) {
-//                ForEach(weeks[0..<7], id: \.self) { weekday in
-//                    Text(weekday).font(.system(size: 10)).foregroundColor(.gray)
-//                }
-//                ForEach(viewModel.days) { day in
-//                    CircleView(day: day).onTapGesture {
-//                        viewModel.choose(day)
-//                        withAnimation{viewModel.swithMode(.Week)}
-//                    }
-//                }
             
-//                ForEach(days[0..<7], id: \.self) { day in
-//                    CircleView(content: day)
-//                }
-            //}
-//            .padding(.horizontal)
-//            //.layoutPriority(100)
-//            .onSwipe{ direction in
-//                    viewModel.swipeMonthOrWeek(direction)
-//                }
             CalendarWeekListView(items: weeks) {
                 weekday in
                     Text(weekday).font(.system(size: 10)).foregroundColor(.gray)
@@ -128,7 +112,6 @@ struct CalendarView: View {
                     }
                 }
             }
-            Divider()
         }
         .background(Color.white)
         //.transition(.testAction)
