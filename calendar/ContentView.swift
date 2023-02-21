@@ -42,7 +42,7 @@ struct CalendarView: View {
     var weeks: [Weekday] = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     
     @State var direction = ""
-    @State var showAnimation: Bool = false
+    //@State var showAnimation: Bool = false
     
     var body: some View {
         VStack {
@@ -85,15 +85,17 @@ struct CalendarView: View {
                     .padding(2)
                     //.transition(.testAction)
                     .onTapGesture {
-                    viewModel.choose(day)
-                    viewModel.swithMode(.Week)
-                    showAnimation.toggle()
+                        viewModel.choose(day)
+                        withAnimation {
+                            viewModel.swithMode(.Week)
+                        }
                     }.animation(nil)
                     
             }
             .onSwipe{ direction in
-                viewModel.swipeMonthOrWeek(direction)
-                showAnimation.toggle()
+                withAnimation {
+                    viewModel.swipeMonthOrWeek(direction)
+                }
             }
             //.transition(.testAction)
             //.animation(.ripple())
@@ -105,8 +107,9 @@ struct CalendarView: View {
                     RoundedRectangle(cornerRadius: 5).frame(height: 25).foregroundColor(.white)
                     Spacer()
                 }.onTapGesture {
-                    viewModel.swithMode(viewModel.mode == .Month ? .Week : .Month)
-                    showAnimation.toggle()
+                    withAnimation {
+                        viewModel.swithMode(viewModel.mode == .Month ? .Week : .Month)
+                    }
                 }
                 HStack {
                     Spacer()
@@ -119,8 +122,9 @@ struct CalendarView: View {
                         Text("查看今天").foregroundColor(.blue).padding(.leading)
                         Spacer()
                     }.onTapGesture {
-                        viewModel.BackToToday()
-                        showAnimation.toggle()
+                        withAnimation {
+                            viewModel.BackToToday()
+                        }
                     }
                 }
             }
@@ -128,13 +132,14 @@ struct CalendarView: View {
         }
         .background(Color.white)
         //.transition(.testAction)
-        .animation( .easeInOut(duration: 0.5), value: showAnimation)
+        //.animation( .easeInOut(duration: 0.5), value: showAnimation)
     }
     
     var week: some View {
         Button( action: {
-            viewModel.swithMode(.Week)
-            showAnimation.toggle()
+            withAnimation {
+                viewModel.swithMode(.Week)
+            }
         }){
             Text("周")
                 .foregroundColor(viewModel.mode == .Week ? .black : .gray)
@@ -142,53 +147,14 @@ struct CalendarView: View {
     }
     var month: some View {
         Button( action: {
-            viewModel.swithMode(.Month)
-            showAnimation.toggle()
+            withAnimation {
+                viewModel.swithMode(.Month)
+            }
         }){
             Text("月")
                 .foregroundColor(viewModel.mode == .Week ? .gray : .black)
         }
     }
-}
-
-/// Part of the logic and var retained in the CircleView will be put into the Model and ViewModel respectively
-struct CircleView: View {
-    let day: DayModel
-    
-    var body: some View {
-        let circleColor: Color = day.toDO ? .white : .mint
-        ZStack {
-            let circleShape = Circle()
-            let textData = day.isToday ? "今" : String(day.date.get(.day))
-            let textColor: Color = resolvingTextColor()
-            let backgroundColorSetting = resolvingBackgroundColorSetting()
-            
-            circleShape.foregroundColor(backgroundColorSetting)
-            Text(textData)
-                .foregroundColor(textColor)
-        }.overlay(Circle().foregroundColor(circleColor).frame(height: 7).offset(y: 10) ,alignment: .bottom).padding(8)
-//            Spacer()
-//
-//
-//            Circle().scale(0.3).foregroundColor(circleColor).padding(0)
-    }
-    
-    func resolvingBackgroundColorSetting() -> Color {
-        var backgroudColor: Color = day.isToday ? .mint : .white
-        if day.picked {
-            backgroudColor = .blue
-        }
-        return backgroudColor
-    }
-    
-    func resolvingTextColor() -> Color {
-        var textColor: Color = day.picked ? .white : .black
-        if !day.isCurrentMonth{
-            textColor = .gray
-        }
-        return textColor
-    }
-    
 }
 
 
@@ -200,69 +166,22 @@ struct EventScrollView: View {
     
     var body: some View {
         ScrollView {
-            ScrollViewReader { scrollView in
-                if viewModel.showEco {
-                    ForEach(viewModel.ecoInfos) { info in
-                        EcnomicStaticView(info: info)
-                    }
-                } else {
-                    ForEach(viewModel.stockInfos) { info in
-                        StockFinancialView(info: info)
-                    }
+            if viewModel.showEco {
+                ForEach(viewModel.ecoInfos) { info in
+                    EcnomicStaticView(info: info).onDisappear(perform: {print("dsad")})
                 }
-                GeometryReader { geo in
-                    Text("test")
-                        .foregroundColor(.red)
-                        .onAppear {
-                            print(geo.frame(in: .global).maxY)
-                            print(geo.size.height)
-                            print(UIScreen.main.bounds.height)
-                            if !isRefreshing && geo.frame(in: .global).maxY <= UIScreen.main.bounds.height {
-                                isRefreshing = true
-                                // 执行下拉刷新操作
-                                print("sadas")
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                    items.append(contentsOf: [20, 21, 22])
-                                    isRefreshing = false
-                                }
-                            }
-                        }
-                }
-                
-            }
-        }
-    }
-    private func refreshControl() -> some View {
-        ZStack {
-            if isRefreshing {
-                ProgressView()
             } else {
-                Image(systemName: "arrow.down")
+                ForEach(viewModel.stockInfos) { info in
+                    StockFinancialView(info: info)
+                }
             }
-        }
-        .frame(width: 30, height: 30)
-        .foregroundColor(.blue)
-        .padding(.top, -50)
-        .opacity(isRefreshing ? 1.0 : 0.5)
-        .onTapGesture {
-            guard !isRefreshing else { return }
-            isRefreshing = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                items = Array(0..<10)
-                isRefreshing = false
-            }
+        }.refreshable {
+            print("hohooh")
         }
     }
-
-    private func loadMoreItems() {
-        guard !isLoading else { return }
-        isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            items += Array(items.count..<items.count + 10)
-            isLoading = false
-        }
-    }
+    
 }
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
@@ -270,12 +189,6 @@ struct ContentView_Previews: PreviewProvider {
             
     }
 }
-
-
-
-
-
-
 
 
 public struct SwipeGesture: Gesture {

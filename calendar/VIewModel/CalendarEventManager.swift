@@ -31,8 +31,8 @@ class CalendarEventManager: ObservableObject {
         model.filter
     }
     
-    func switchTab() {
-        model.switchTab()
+    func switchTab(_ selectedIndex: Int) {
+        model.switchTab(selectedIndex)
     }
     
     func changeFilter(action cancelOrSelect: Bool, selectedTitle title: String) {

@@ -23,7 +23,7 @@ struct EventTabView: View {
                             withAnimation {
                                 selector = index
                             }
-                            viewModel.switchTab()
+                            viewModel.switchTab(index)
                         }
                     }, label: {
                         if selector == segmented.firstIndex(of: name){

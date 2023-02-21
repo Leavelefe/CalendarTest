@@ -75,13 +75,15 @@ struct CalendarEvent {
         }
     }
     
-    mutating func switchTab() {
-        if self.tab == 0 {
-            self.tab = 1
-            self.filter = filter2
-        } else {
-            self.tab = 0
-            self.filter = filter1
+    mutating func switchTab(_ selectedTab: Int) {
+        if self.tab != selectedTab {
+            if self.tab == 0 {
+                self.tab = 1
+                self.filter = filter2
+            } else {
+                self.tab = 0
+                self.filter = filter1
+            }
         }
     }
     
