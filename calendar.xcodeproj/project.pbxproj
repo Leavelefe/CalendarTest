@@ -165,8 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */,
-				9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */,
 				9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */,
+				9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */,
 				9D2927EA29A35C3F00717FFA /* EventTabView.swift */,
 			);
 			path = View;

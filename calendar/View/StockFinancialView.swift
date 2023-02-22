@@ -23,6 +23,7 @@ struct StockFinancialView: View {
                                 .resizable()
                                 .frame(width: 40, height: 40)
                                 .foregroundColor(.blue)
+                                .addCalendarEventSheet(title: "事件名称", date: info.id)
                         }
                         HStack {
                             Spacer()
@@ -44,7 +45,7 @@ struct StockFinancialView: View {
                     stockList in
                     StockStyleStack {
                         VStack {
-                            TitleView(chooseType: stockList.first!.stockType)
+                            TitleView(stockItem: stockList[0], chooseType: stockList.first!.stockType)
                             ForEach(stockList) {
                                 stock in
                                 Stockview(stockItem: stock)
@@ -85,6 +86,7 @@ struct DateView: View {
 }
 
 struct TitleView: View {
+    let stockItem: NewStockItem
     let chooseType: Int
     
     var body: some View {
@@ -130,6 +132,7 @@ struct TitleView: View {
                 Image(systemName: "calendar.badge.plus")
                     .foregroundColor(.gray)
                     .padding([.horizontal], 10)
+                    .addCalendarEventSheet(title: stockItem.getTitle(), date: stockItem.getDate())
             }
         }
     }
@@ -161,6 +164,7 @@ struct Stockview:View {
                     Spacer()
                     Image(systemName: "calendar.badge.plus")
                         .foregroundColor(.gray)
+                        .addCalendarEventSheet(title: stockItem.getTitle(), date: stockItem.getDate())
     //                    .onTapGesture {
     //                        self.isShowingBottomView.toggle()
     //                    }

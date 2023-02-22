@@ -22,6 +22,8 @@ struct NewStockItem: Identifiable, Hashable {
     var id: String?
     //YYYYMMDD
     var day: String
+    //HH:MM
+    var time: String?
     var stockName: String?
     var stockPrice: Float?
     // 0 - 无
@@ -35,4 +37,34 @@ struct NewStockItem: Identifiable, Hashable {
         hasher.combine(day)
     }
     
+    func getDate() -> Date {
+        let timeWanted = time != nil ? time! : Date().getHourAndMinutes()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHH:mm"
+        if let date = dateFormatter.date(from: (day + timeWanted)) {
+            return date
+        } else {
+            return Date()
+        }
+    }
+    
+    func getTitle() -> String {
+        var bufferString = ""
+        if stockType == 1 {
+            bufferString += stockName!
+            bufferString += "新股上市"
+        } else if stockType == 2 {
+            bufferString += stockName!
+            bufferString += "新股申购"
+        } else if stockType == 3 {
+            bufferString += "A股休市；港股通暂停交易"
+        } else if stockType == 4 {
+            bufferString += stockName!
+            bufferString += "新债上市"
+        } else if stockType == 5 {
+            bufferString += stockName!
+            bufferString += "新债申购"
+        }
+        return bufferString
+    }
 }

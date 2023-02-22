@@ -34,6 +34,18 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    func getFullStringDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日 HH:mm"
+        return formatter.string(from: self)
+    }
+    
+    func getHourAndMinutes() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: self)
+    }
+    
     func getWeekDay() -> String {
         let weekday = self.get(.weekday)
         if weekday == 1 {

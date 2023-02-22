@@ -42,4 +42,14 @@ struct NewEcoItem: Identifiable, Hashable {
         hasher.combine(day)
     }
     
+    func getDate() -> Date {
+        let timeWanted = time != nil ? time! : Date().getHourAndMinutes()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHH:mm"
+        if let date = dateFormatter.date(from: (day + timeWanted)) {
+            return date
+        } else {
+            return Date()
+        }
+    }
 }
