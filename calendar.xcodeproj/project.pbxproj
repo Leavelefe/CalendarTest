@@ -25,6 +25,8 @@
 		9D2927EB29A35C4000717FFA /* EventTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927EA29A35C3F00717FFA /* EventTabView.swift */; };
 		9D2927EF29A44D7600717FFA /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927EE29A44D7600717FFA /* CircleView.swift */; };
 		9D2927F329A4FBD000717FFA /* AddCalendarEventImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927F229A4FBD000717FFA /* AddCalendarEventImage.swift */; };
+		9D2A574B29A76018005B879C /* EventScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A574A29A76018005B879C /* EventScrollView.swift */; };
+		9D2A574D29A7609B005B879C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A574C29A7609B005B879C /* CalendarView.swift */; };
 		9DBA53C8299A1AB600CDE066 /* Array+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C7299A1AB600CDE066 /* Array+format.swift */; };
 		9DBA53CA299B5C6800CDE066 /* StockFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */; };
 		9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */; };
@@ -52,6 +54,8 @@
 		9D2927EA29A35C3F00717FFA /* EventTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTabView.swift; sourceTree = "<group>"; };
 		9D2927EE29A44D7600717FFA /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		9D2927F229A4FBD000717FFA /* AddCalendarEventImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCalendarEventImage.swift; sourceTree = "<group>"; };
+		9D2A574A29A76018005B879C /* EventScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScrollView.swift; sourceTree = "<group>"; };
+		9D2A574C29A7609B005B879C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		9DBA53C7299A1AB600CDE066 /* Array+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+format.swift"; sourceTree = "<group>"; };
 		9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFinancialView.swift; sourceTree = "<group>"; };
 		9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcnomicStaticView.swift; sourceTree = "<group>"; };
@@ -164,10 +168,10 @@
 		9D13B75B2995F03C008669D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */,
-				9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */,
-				9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */,
 				9D2927EA29A35C3F00717FFA /* EventTabView.swift */,
+				9D2A574E29A760F8005B879C /* EventScrollViewContent */,
+				9D2A574C29A7609B005B879C /* CalendarView.swift */,
+				9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +182,16 @@
 				9D2927E2299F508200717FFA /* JSONData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		9D2A574E29A760F8005B879C /* EventScrollViewContent */ = {
+			isa = PBXGroup;
+			children = (
+				9D2A574A29A76018005B879C /* EventScrollView.swift */,
+				9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */,
+				9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */,
+			);
+			path = EventScrollViewContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +264,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2A574B29A76018005B879C /* EventScrollView.swift in Sources */,
 				9DBA53D0299CADF100CDE066 /* CalendarWeekListView.swift in Sources */,
+				9D2A574D29A7609B005B879C /* CalendarView.swift in Sources */,
 				9D13B7582994BD60008669D7 /* SystemCalendar.swift in Sources */,
 				9D2927E3299F508200717FFA /* JSONData.swift in Sources */,
 				9D13B7512993370B008669D7 /* DayModel.swift in Sources */,
@@ -399,6 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"calendar/Preview Content\"";
+				DEVELOPMENT_TEAM = BFSQ47XC78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -406,6 +423,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,6 +445,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"calendar/Preview Content\"";
+				DEVELOPMENT_TEAM = BFSQ47XC78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -434,6 +453,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

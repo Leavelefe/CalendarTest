@@ -25,8 +25,3 @@ struct CalendarWeekListView<Item, ItemView>: View where ItemView : View, Item : 
     }
 }
 
-//struct CalendarWeekListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CalendarWeekListView()
-//    }
-//}

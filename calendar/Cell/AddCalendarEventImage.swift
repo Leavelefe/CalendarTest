@@ -195,7 +195,6 @@ struct ReminderSettingView: View {
 
 struct AddCalendarEventImage_Previews: PreviewProvider {
     static var previews: some View {
-        let item = NewEcoItem(id: "111", day: "20230221", title: "十三届全国人大常委会第三十九届会议", content: "十三届全国人大常委会第三十九届会议2月23日至24日在北京举行", infoType: 3)
         Image(systemName: "calendar.badge.plus")
             .foregroundColor(.gray)
             .padding(.trailing, 13)

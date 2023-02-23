@@ -15,5 +15,11 @@ extension AnyTransition {
             .combined(with: opacity)
         return .asymmetric(insertion: insertion, removal: removal)
     }
+    
+    static var empty: AnyTransition {
+            let insertion = AnyTransition.identity
+            let removal = AnyTransition.identity
+            return .asymmetric(insertion: insertion, removal: removal)
+        }
 }
 

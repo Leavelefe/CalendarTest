@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 /// Under Construction
 struct CalendarModel {
     private(set) var today: Date = Date()
@@ -63,8 +64,8 @@ struct CalendarModel {
         if let chooseIndex = daySet_Series.firstIndex(where: {$0.id == day.id}),
             daySet_Series[chooseIndex].isCurrentMonth
         {
-            if let defaultPickedDate = locatedIndex {
-                daySet_Series[defaultPickedDate].picked = false
+            if let defaultPickedDateIndex = locatedIndex {
+                daySet_Series[defaultPickedDateIndex].picked = false
                 locatedIndex = chooseIndex
                 daySet_Series[chooseIndex].picked.toggle()
                 locatedDay =  daySet_Series[chooseIndex].date
@@ -87,17 +88,17 @@ struct CalendarModel {
     
     /// Swipe to the next or previos month or week
     /// - Parameter newMode:
-    mutating func changeMonthOrWeek(_ direction: SwipeGesture.Direction) {
+    mutating func changeMonthOrWeek(_ isPrevios: Bool) {
         if mode == .Week {
-            if direction == .right {
+            if isPrevios {
                 self = .init(beigningMode: .Week, updateDate: myCalendar.previousWeek(locatedDay))
-            } else if direction == .left {
+            } else {
                 self = .init(beigningMode: .Week, updateDate: myCalendar.nextWeek(locatedDay))
             }
         } else {
-            if direction == .right {
+            if isPrevios {
                 self = .init(beigningMode: .Month, updateDate: myCalendar.previousMonth(locatedDay))
-            } else if direction == .left {
+            } else {
                 self = .init(beigningMode: .Month, updateDate: myCalendar.nextMonth(locatedDay))
             }
         }
@@ -105,6 +106,42 @@ struct CalendarModel {
     
     mutating func BackToToday() {
         self = .init()
+    }
+    
+    func returnPreviousOrNextDays(isPrevios: Bool) -> Array<DayModel> {
+        var bufferDate: Date? = nil
+        if mode == .Week {
+            if isPrevios {
+                bufferDate = myCalendar.previousWeek(locatedDay)
+            } else  {
+                bufferDate = myCalendar.nextWeek(locatedDay)
+            }
+        } else {
+            if isPrevios {
+                bufferDate = myCalendar.previousMonth(locatedDay)
+            } else {
+                bufferDate = myCalendar.nextMonth(locatedDay)
+            }
+        }
+        
+        let daySet_buffer = createDaySets(selectedMode: mode, pickedDate: bufferDate!)
+        return daySet_buffer
+    }
+    
+    func createDaySets(selectedMode: ModeType, pickedDate: Date) -> Array<DayModel> {
+        var daySet_buffer = Array<DayModel>()
+        
+        let daySet = selectedMode == .Month ? myCalendar.monthDays(oneDay: pickedDate) : myCalendar.weekDays(oneDay: pickedDate)
+        
+        for index in 0..<daySet.count {
+            let isCurrentMonth: Bool = mode == .Month ? myCalendar.isCurrentMonth(is: daySet[index], equalto: pickedDate) : true
+            let isToday: Bool = myCalendar.isSameDay(is: daySet[index], equalto: today)
+//            if isSelectedDay {
+//                locatedIndex = index
+//            }
+            daySet_buffer.append(DayModel(id: index, picked: false, isToday: isToday, isCurrentMonth: isCurrentMonth, date: daySet[index]))
+        }
+        return daySet_buffer
     }
 }
 

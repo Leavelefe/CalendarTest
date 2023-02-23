@@ -38,6 +38,10 @@ class CalendarManageViewModel: ObservableObject {
         model.mode
     }
     
+    func previousOrNextDays(isPreious: Bool) -> Array<DayModel> {
+        model.returnPreviousOrNextDays(isPrevios: isPreious)
+    }
+    
     func choose(_ day: DayModel) {
         model.choose(day)
     }
@@ -46,8 +50,8 @@ class CalendarManageViewModel: ObservableObject {
         model.swithMode(mode)
     }
     
-    func swipeMonthOrWeek(_ direction: SwipeGesture.Direction) {
-        model.changeMonthOrWeek(direction)
+    func swipeMonthOrWeek(_ isLeft: Bool) {
+        model.changeMonthOrWeek(!isLeft)
     }
     
     func BackToToday() {

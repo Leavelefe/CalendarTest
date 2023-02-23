@@ -22,7 +22,7 @@ struct CircleView: View {
             circleShape.foregroundColor(backgroundColorSetting)
             Text(textData)
                 .foregroundColor(textColor)
-        }.overlay(Circle().foregroundColor(circleColor).frame(height: 7).offset(y: 10) ,alignment: .bottom).padding(8)
+        }.overlay(Circle().foregroundColor(circleColor).frame(height: 7).offset(y: 10) ,alignment: .bottom).padding(8).transition(.empty)
 //            Spacer()
 //
 //

@@ -48,20 +48,7 @@ extension Date {
     
     func getWeekDay() -> String {
         let weekday = self.get(.weekday)
-        if weekday == 1 {
-            return "星期日"
-        } else if weekday == 2 {
-            return "星期一"
-        } else if weekday == 3 {
-            return "星期二"
-        } else if weekday == 4 {
-            return "星期三"
-        } else if weekday == 5 {
-            return "星期四"
-        } else if weekday == 6 {
-            return "星期五"
-        } else {
-            return "星期六"
-        }
+        let weekList = ["星期日","星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+        return weekList[weekday - 1]
     }
 }
