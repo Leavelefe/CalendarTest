@@ -1,0 +1,1602 @@
+[
+  {
+    "stockType" : 4,
+    "time" : "10:20",
+    "stockName" : "KB申购",
+    "id" : "262772",
+    "stockPrice" : "59.22",
+    "day" : "20230102"
+  },
+  {
+    "day" : "20230103",
+    "time" : "09:29",
+    "id" : "575253",
+    "stockType" : 4,
+    "stockName" : "ZY申购",
+    "stockPrice" : "2.48"
+  },
+  {
+    "id" : "879866",
+    "day" : "20230104",
+    "time" : "09:16",
+    "stockName" : "QQ申购",
+    "stockType" : 4,
+    "stockPrice" : "60.31"
+  },
+  {
+    "id" : "673240",
+    "time" : "09:01",
+    "stockName" : "CO申购",
+    "stockType" : 4,
+    "stockPrice" : "83.73",
+    "day" : "20230105"
+  },
+  {
+    "stockPrice" : "32.06",
+    "time" : "10:12",
+    "stockType" : 1,
+    "stockName" : "HN申购",
+    "id" : "677280",
+    "day" : "20230106"
+  },
+  {
+    "stockType" : 4,
+    "id" : "491164",
+    "time" : "10:24",
+    "day" : "20230109",
+    "stockPrice" : "75.02",
+    "stockName" : "KS申购"
+  },
+  {
+    "stockType" : 1,
+    "id" : "364322",
+    "time" : "10:56",
+    "day" : "20230110",
+    "stockPrice" : "88.25",
+    "stockName" : "TP申购"
+  },
+  {
+    "stockName" : "HG申购",
+    "id" : "740404",
+    "day" : "20230111",
+    "time" : "10:24",
+    "stockPrice" : "54.98",
+    "stockType" : 4
+  },
+  {
+    "day" : "20230112",
+    "stockPrice" : "5.09",
+    "stockType" : 1,
+    "stockName" : "RC申购",
+    "id" : "758916",
+    "time" : "09:59"
+  },
+  {
+    "stockPrice" : "34.04",
+    "id" : "150701",
+    "stockType" : 5,
+    "day" : "20230113",
+    "time" : "09:09",
+    "stockName" : "HX申购"
+  },
+  {
+    "stockType" : 4,
+    "id" : "376662",
+    "stockName" : "YZ申购",
+    "time" : "11:03",
+    "day" : "20230116",
+    "stockPrice" : "5.97"
+  },
+  {
+    "time" : "10:17",
+    "day" : "20230117",
+    "stockName" : "EY申购",
+    "id" : "763302",
+    "stockPrice" : "59.12",
+    "stockType" : 2
+  },
+  {
+    "stockType" : 1,
+    "time" : "11:40",
+    "id" : "374585",
+    "day" : "20230118",
+    "stockName" : "EP申购",
+    "stockPrice" : "60.20"
+  },
+  {
+    "stockName" : "JW申购",
+    "stockPrice" : "75.13",
+    "day" : "20230119",
+    "stockType" : 1,
+    "id" : "880958",
+    "time" : "10:10"
+  },
+  {
+    "stockType" : 1,
+    "stockPrice" : "87.78",
+    "time" : "09:11",
+    "id" : "370490",
+    "day" : "20230120",
+    "stockName" : "PI申购"
+  },
+  {
+    "id" : "475548",
+    "day" : "20230123",
+    "time" : "11:19",
+    "stockName" : "HK申购",
+    "stockPrice" : "44.12",
+    "stockType" : 4
+  },
+  {
+    "id" : "688100",
+    "stockName" : "QO申购",
+    "stockType" : 1,
+    "stockPrice" : "5.41",
+    "time" : "10:46",
+    "day" : "20230124"
+  },
+  {
+    "stockPrice" : "24.53",
+    "id" : "755466",
+    "time" : "09:41",
+    "stockName" : "FS申购",
+    "day" : "20230125",
+    "stockType" : 2
+  },
+  {
+    "id" : "463868",
+    "stockType" : 1,
+    "day" : "20230126",
+    "stockName" : "FV申购",
+    "time" : "09:03",
+    "stockPrice" : "16.47"
+  },
+  {
+    "id" : "201970",
+    "time" : "11:11",
+    "stockType" : 2,
+    "stockName" : "AG申购",
+    "stockPrice" : "88.62",
+    "day" : "20230127"
+  },
+  {
+    "stockPrice" : "15.55",
+    "stockType" : 2,
+    "id" : "634154",
+    "stockName" : "JN申购",
+    "day" : "20230130",
+    "time" : "09:39"
+  },
+  {
+    "stockType" : 5,
+    "time" : "10:25",
+    "stockPrice" : "0.57",
+    "id" : "451802",
+    "day" : "20230131",
+    "stockName" : "AO申购"
+  },
+  {
+    "id" : "298264",
+    "stockType" : 4,
+    "time" : "11:16",
+    "stockPrice" : "71.17",
+    "stockName" : "HK申购",
+    "day" : "20230201"
+  },
+  {
+    "time" : "10:59",
+    "day" : "20230202",
+    "stockType" : 1,
+    "stockPrice" : "6.85",
+    "id" : "057419",
+    "stockName" : "FC申购"
+  },
+  {
+    "day" : "20230203",
+    "time" : "11:59",
+    "stockName" : "FX申购",
+    "id" : "277251",
+    "stockType" : 4,
+    "stockPrice" : "33.78"
+  },
+  {
+    "day" : "20230206",
+    "time" : "10:52",
+    "stockType" : 4,
+    "stockPrice" : "28.73",
+    "id" : "759092",
+    "stockName" : "YV申购"
+  },
+  {
+    "id" : "106585",
+    "stockType" : 4,
+    "stockPrice" : "24.63",
+    "time" : "10:55",
+    "stockName" : "YX申购",
+    "day" : "20230207"
+  },
+  {
+    "id" : "114039",
+    "stockType" : 4,
+    "time" : "11:06",
+    "stockName" : "YY申购",
+    "day" : "20230208",
+    "stockPrice" : "99.42"
+  },
+  {
+    "stockPrice" : "86.33",
+    "id" : "896576",
+    "day" : "20230209",
+    "time" : "10:45",
+    "stockName" : "JL申购",
+    "stockType" : 1
+  },
+  {
+    "stockType" : 2,
+    "day" : "20230210",
+    "id" : "377375",
+    "time" : "09:56",
+    "stockName" : "MY申购",
+    "stockPrice" : "94.67"
+  },
+  {
+    "stockType" : 1,
+    "id" : "017459",
+    "day" : "20230213",
+    "time" : "10:25",
+    "stockName" : "JT申购",
+    "stockPrice" : "16.83"
+  },
+  {
+    "stockPrice" : "9.96",
+    "day" : "20230214",
+    "id" : "487362",
+    "time" : "11:58",
+    "stockName" : "LF申购",
+    "stockType" : 2
+  },
+  {
+    "id" : "406561",
+    "stockType" : 4,
+    "day" : "20230215",
+    "time" : "09:49",
+    "stockPrice" : "46.53",
+    "stockName" : "NQ申购"
+  },
+  {
+    "stockPrice" : "85.58",
+    "time" : "09:31",
+    "id" : "469308",
+    "day" : "20230216",
+    "stockName" : "LV申购",
+    "stockType" : 2
+  },
+  {
+    "time" : "09:39",
+    "id" : "429118",
+    "stockType" : 1,
+    "day" : "20230217",
+    "stockName" : "UN申购",
+    "stockPrice" : "26.46"
+  },
+  {
+    "stockName" : "NA申购",
+    "time" : "10:35",
+    "day" : "20230220",
+    "stockPrice" : "59.69",
+    "stockType" : 4,
+    "id" : "818789"
+  },
+  {
+    "stockType" : 4,
+    "day" : "20230221",
+    "id" : "424098",
+    "time" : "10:52",
+    "stockPrice" : "8.98",
+    "stockName" : "ID申购"
+  },
+  {
+    "day" : "20230222",
+    "id" : "492189",
+    "time" : "10:40",
+    "stockName" : "UA申购",
+    "stockPrice" : "2.78",
+    "stockType" : 4
+  },
+  {
+    "id" : "941532",
+    "time" : "11:29",
+    "day" : "20230223",
+    "stockType" : 5,
+    "stockPrice" : "0.26",
+    "stockName" : "AB申购"
+  },
+  {
+    "stockName" : "ZP申购",
+    "stockPrice" : "21.54",
+    "stockType" : 2,
+    "id" : "711186",
+    "time" : "11:45",
+    "day" : "20230224"
+  },
+  {
+    "day" : "20230227",
+    "stockName" : "JO申购",
+    "stockType" : 1,
+    "stockPrice" : "42.25",
+    "id" : "119632",
+    "time" : "09:14"
+  },
+  {
+    "id" : "456212",
+    "day" : "20230228",
+    "time" : "10:20",
+    "stockPrice" : "58.40",
+    "stockType" : 5,
+    "stockName" : "OM申购"
+  },
+  {
+    "id" : "454840",
+    "stockType" : 4,
+    "day" : "20230301",
+    "time" : "10:58",
+    "stockPrice" : "0.12",
+    "stockName" : "IO申购"
+  },
+  {
+    "stockPrice" : "87.00",
+    "time" : "09:14",
+    "stockType" : 4,
+    "id" : "182807",
+    "day" : "20230302",
+    "stockName" : "BG申购"
+  },
+  {
+    "id" : "070062",
+    "time" : "10:21",
+    "day" : "20230303",
+    "stockPrice" : "36.00",
+    "stockType" : 1,
+    "stockName" : "ZN申购"
+  },
+  {
+    "id" : "517170",
+    "stockName" : "CS申购",
+    "time" : "00:00",
+    "stockType" : 3,
+    "day" : "20230304",
+    "stockPrice" : "61.41"
+  },
+  {
+    "time" : "00:00",
+    "stockPrice" : "39.40",
+    "stockName" : "QX申购",
+    "stockType" : 3,
+    "day" : "20230305",
+    "id" : "861973"
+  },
+  {
+    "id" : "522659",
+    "time" : "11:10",
+    "stockName" : "AT申购",
+    "stockPrice" : "35.95",
+    "day" : "20230306",
+    "stockType" : 4
+  },
+  {
+    "stockName" : "GH申购",
+    "stockPrice" : "99.96",
+    "stockType" : 4,
+    "time" : "10:52",
+    "id" : "280636",
+    "day" : "20230307"
+  },
+  {
+    "time" : "11:23",
+    "stockType" : 5,
+    "day" : "20230308",
+    "stockName" : "XM申购",
+    "stockPrice" : "0.06",
+    "id" : "219963"
+  },
+  {
+    "stockType" : 2,
+    "time" : "10:31",
+    "stockName" : "OS申购",
+    "stockPrice" : "54.10",
+    "id" : "810400",
+    "day" : "20230309"
+  },
+  {
+    "day" : "20230310",
+    "stockPrice" : "23.03",
+    "stockName" : "KL申购",
+    "stockType" : 1,
+    "time" : "10:37",
+    "id" : "195376"
+  },
+  {
+    "id" : "382419",
+    "time" : "00:00",
+    "stockName" : "RC申购",
+    "stockPrice" : "38.44",
+    "stockType" : 3,
+    "day" : "20230311"
+  },
+  {
+    "time" : "00:00",
+    "id" : "633572",
+    "stockName" : "JJ申购",
+    "stockPrice" : "93.96",
+    "stockType" : 3,
+    "day" : "20230312"
+  },
+  {
+    "id" : "148547",
+    "day" : "20230313",
+    "stockName" : "CU申购",
+    "time" : "11:27",
+    "stockType" : 1,
+    "stockPrice" : "88.81"
+  },
+  {
+    "stockType" : 1,
+    "time" : "10:18",
+    "day" : "20230314",
+    "stockPrice" : "18.61",
+    "id" : "873661",
+    "stockName" : "BC申购"
+  },
+  {
+    "time" : "09:20",
+    "id" : "886693",
+    "stockName" : "OI申购",
+    "stockPrice" : "42.49",
+    "day" : "20230315",
+    "stockType" : 2
+  },
+  {
+    "day" : "20230316",
+    "id" : "244828",
+    "stockName" : "GO申购",
+    "stockPrice" : "23.27",
+    "stockType" : 2,
+    "time" : "09:44"
+  },
+  {
+    "id" : "484251",
+    "time" : "09:24",
+    "day" : "20230317",
+    "stockName" : "GC申购",
+    "stockPrice" : "4.10",
+    "stockType" : 2
+  },
+  {
+    "stockName" : "CQ申购",
+    "day" : "20230318",
+    "stockPrice" : "50.68",
+    "stockType" : 3,
+    "id" : "522670",
+    "time" : "00:00"
+  },
+  {
+    "day" : "20230319",
+    "stockPrice" : "88.72",
+    "id" : "492586",
+    "stockName" : "KT申购",
+    "time" : "00:00",
+    "stockType" : 3
+  },
+  {
+    "stockName" : "TL申购",
+    "day" : "20230320",
+    "id" : "773162",
+    "stockType" : 5,
+    "stockPrice" : "90.19",
+    "time" : "10:11"
+  },
+  {
+    "stockType" : 1,
+    "day" : "20230321",
+    "id" : "822996",
+    "time" : "09:41",
+    "stockName" : "OY申购",
+    "stockPrice" : "99.93"
+  },
+  {
+    "time" : "11:20",
+    "day" : "20230322",
+    "id" : "132513",
+    "stockType" : 4,
+    "stockPrice" : "86.93",
+    "stockName" : "JA申购"
+  },
+  {
+    "id" : "520781",
+    "day" : "20230323",
+    "stockName" : "HV申购",
+    "stockPrice" : "64.26",
+    "time" : "09:44",
+    "stockType" : 4
+  },
+  {
+    "time" : "09:12",
+    "stockName" : "GY申购",
+    "id" : "345556",
+    "stockPrice" : "71.98",
+    "stockType" : 5,
+    "day" : "20230324"
+  },
+  {
+    "id" : "877385",
+    "day" : "20230325",
+    "stockName" : "LF申购",
+    "stockPrice" : "63.21",
+    "stockType" : 3,
+    "time" : "00:00"
+  },
+  {
+    "time" : "00:00",
+    "stockName" : "KX申购",
+    "day" : "20230326",
+    "id" : "598282",
+    "stockPrice" : "91.62",
+    "stockType" : 3
+  },
+  {
+    "day" : "20230327",
+    "stockName" : "ZZ申购",
+    "time" : "10:50",
+    "stockType" : 5,
+    "id" : "165078",
+    "stockPrice" : "19.19"
+  },
+  {
+    "day" : "20230328",
+    "time" : "09:57",
+    "id" : "304108",
+    "stockPrice" : "34.98",
+    "stockName" : "NZ申购",
+    "stockType" : 2
+  },
+  {
+    "id" : "710945",
+    "day" : "20230329",
+    "stockPrice" : "42.50",
+    "stockType" : 4,
+    "stockName" : "DU申购",
+    "time" : "09:12"
+  },
+  {
+    "id" : "192975",
+    "time" : "10:00",
+    "stockName" : "VA申购",
+    "stockPrice" : "69.26",
+    "day" : "20230330",
+    "stockType" : 5
+  },
+  {
+    "time" : "11:13",
+    "id" : "843477",
+    "stockPrice" : "57.27",
+    "day" : "20230331",
+    "stockType" : 1,
+    "stockName" : "KH申购"
+  },
+  {
+    "stockType" : 3,
+    "day" : "20230401",
+    "time" : "00:00",
+    "id" : "387441",
+    "stockPrice" : "5.94",
+    "stockName" : "PW申购"
+  },
+  {
+    "id" : "415694",
+    "stockPrice" : "15.57",
+    "day" : "20230402",
+    "stockName" : "SO申购",
+    "time" : "00:00",
+    "stockType" : 3
+  },
+  {
+    "stockPrice" : "87.90",
+    "time" : "10:43",
+    "day" : "20230403",
+    "id" : "690028",
+    "stockName" : "IX申购",
+    "stockType" : 5
+  },
+  {
+    "id" : "409668",
+    "day" : "20230404",
+    "time" : "11:14",
+    "stockName" : "PN申购",
+    "stockPrice" : "90.70",
+    "stockType" : 5
+  },
+  {
+    "day" : "20230405",
+    "stockPrice" : "29.85",
+    "stockType" : 1,
+    "time" : "11:00",
+    "id" : "723002",
+    "stockName" : "OV申购"
+  },
+  {
+    "id" : "269337",
+    "day" : "20230406",
+    "stockName" : "AO申购",
+    "stockType" : 2,
+    "stockPrice" : "12.51",
+    "time" : "10:20"
+  },
+  {
+    "id" : "142410",
+    "stockName" : "OA申购",
+    "stockType" : 1,
+    "day" : "20230407",
+    "time" : "11:49",
+    "stockPrice" : "94.16"
+  },
+  {
+    "stockName" : "IW申购",
+    "day" : "20230408",
+    "time" : "00:00",
+    "stockPrice" : "79.25",
+    "stockType" : 3,
+    "id" : "180276"
+  },
+  {
+    "stockName" : "MS申购",
+    "stockType" : 3,
+    "id" : "907348",
+    "time" : "00:00",
+    "stockPrice" : "0.73",
+    "day" : "20230409"
+  },
+  {
+    "day" : "20230410",
+    "stockName" : "HY申购",
+    "stockPrice" : "9.22",
+    "stockType" : 1,
+    "time" : "10:49",
+    "id" : "853157"
+  },
+  {
+    "stockPrice" : "62.16",
+    "day" : "20230411",
+    "stockType" : 2,
+    "time" : "09:00",
+    "id" : "544245",
+    "stockName" : "HU申购"
+  },
+  {
+    "id" : "329290",
+    "stockName" : "XP申购",
+    "stockPrice" : "41.17",
+    "stockType" : 5,
+    "day" : "20230412",
+    "time" : "10:43"
+  },
+  {
+    "stockType" : 4,
+    "stockName" : "KQ申购",
+    "id" : "895282",
+    "stockPrice" : "37.99",
+    "day" : "20230413",
+    "time" : "09:00"
+  },
+  {
+    "time" : "10:48",
+    "stockName" : "TX申购",
+    "day" : "20230414",
+    "stockType" : 2,
+    "stockPrice" : "66.07",
+    "id" : "193360"
+  },
+  {
+    "day" : "20230415",
+    "stockName" : "BV申购",
+    "time" : "00:00",
+    "stockPrice" : "44.19",
+    "id" : "665967",
+    "stockType" : 3
+  },
+  {
+    "day" : "20230416",
+    "id" : "257809",
+    "stockPrice" : "9.89",
+    "stockType" : 3,
+    "stockName" : "SB申购",
+    "time" : "00:00"
+  },
+  {
+    "stockType" : 5,
+    "day" : "20230417",
+    "time" : "10:45",
+    "stockName" : "QR申购",
+    "id" : "620539",
+    "stockPrice" : "3.83"
+  },
+  {
+    "day" : "20230418",
+    "stockName" : "JO申购",
+    "stockType" : 2,
+    "id" : "219777",
+    "time" : "09:09",
+    "stockPrice" : "26.50"
+  },
+  {
+    "time" : "09:03",
+    "day" : "20230419",
+    "stockType" : 1,
+    "id" : "770811",
+    "stockPrice" : "16.31",
+    "stockName" : "LB申购"
+  },
+  {
+    "time" : "11:46",
+    "stockType" : 1,
+    "stockPrice" : "94.88",
+    "stockName" : "XG申购",
+    "id" : "756707",
+    "day" : "20230420"
+  },
+  {
+    "stockPrice" : "76.68",
+    "stockType" : 4,
+    "time" : "09:58",
+    "stockName" : "AR申购",
+    "day" : "20230421",
+    "id" : "601728"
+  },
+  {
+    "stockPrice" : "16.06",
+    "day" : "20230422",
+    "stockType" : 3,
+    "id" : "286696",
+    "stockName" : "DR申购",
+    "time" : "00:00"
+  },
+  {
+    "time" : "00:00",
+    "id" : "003057",
+    "stockName" : "TH申购",
+    "stockType" : 3,
+    "day" : "20230423",
+    "stockPrice" : "83.75"
+  },
+  {
+    "day" : "20230424",
+    "time" : "11:14",
+    "stockPrice" : "68.71",
+    "stockType" : 5,
+    "stockName" : "UG申购",
+    "id" : "940172"
+  },
+  {
+    "day" : "20230425",
+    "id" : "841171",
+    "stockType" : 4,
+    "stockPrice" : "2.53",
+    "time" : "09:56",
+    "stockName" : "IY申购"
+  },
+  {
+    "stockName" : "BH申购",
+    "day" : "20230426",
+    "stockPrice" : "86.35",
+    "id" : "607253",
+    "time" : "10:37",
+    "stockType" : 1
+  },
+  {
+    "stockType" : 4,
+    "id" : "858728",
+    "day" : "20230427",
+    "stockPrice" : "21.35",
+    "stockName" : "LK申购",
+    "time" : "09:28"
+  },
+  {
+    "stockName" : "BZ申购",
+    "day" : "20230428",
+    "stockType" : 4,
+    "stockPrice" : "69.66",
+    "id" : "519606",
+    "time" : "10:38"
+  },
+  {
+    "day" : "20230429",
+    "stockName" : "GV申购",
+    "stockType" : 3,
+    "id" : "631689",
+    "time" : "00:00",
+    "stockPrice" : "34.32"
+  },
+  {
+    "id" : "706792",
+    "stockPrice" : "80.79",
+    "day" : "20230430",
+    "time" : "00:00",
+    "stockName" : "VP申购",
+    "stockType" : 3
+  },
+  {
+    "stockName" : "TV申购",
+    "id" : "647534",
+    "stockType" : 2,
+    "time" : "09:29",
+    "day" : "20230501",
+    "stockPrice" : "79.74"
+  },
+  {
+    "id" : "105373",
+    "stockPrice" : "2.07",
+    "stockName" : "CN申购",
+    "day" : "20230502",
+    "time" : "10:53",
+    "stockType" : 5
+  },
+  {
+    "stockType" : 5,
+    "stockName" : "JA申购",
+    "day" : "20230503",
+    "id" : "789075",
+    "time" : "10:37",
+    "stockPrice" : "50.82"
+  },
+  {
+    "stockType" : 1,
+    "stockName" : "ET申购",
+    "time" : "09:46",
+    "id" : "442837",
+    "day" : "20230504",
+    "stockPrice" : "79.68"
+  },
+  {
+    "time" : "10:44",
+    "stockName" : "AD申购",
+    "day" : "20230505",
+    "stockType" : 1,
+    "id" : "701333",
+    "stockPrice" : "85.64"
+  },
+  {
+    "day" : "20230506",
+    "stockName" : "LI申购",
+    "time" : "00:00",
+    "stockType" : 3,
+    "id" : "127408",
+    "stockPrice" : "99.90"
+  },
+  {
+    "id" : "073555",
+    "day" : "20230507",
+    "time" : "00:00",
+    "stockName" : "DE申购",
+    "stockPrice" : "70.41",
+    "stockType" : 3
+  },
+  {
+    "stockType" : 2,
+    "day" : "20230508",
+    "stockName" : "YG申购",
+    "stockPrice" : "98.83",
+    "id" : "277622",
+    "time" : "09:09"
+  },
+  {
+    "day" : "20230509",
+    "time" : "10:18",
+    "stockPrice" : "90.44",
+    "id" : "503516",
+    "stockName" : "BV申购",
+    "stockType" : 4
+  },
+  {
+    "stockPrice" : "36.88",
+    "stockName" : "PL申购",
+    "day" : "20230510",
+    "stockType" : 2,
+    "time" : "10:25",
+    "id" : "191680"
+  },
+  {
+    "day" : "20230511",
+    "stockType" : 1,
+    "time" : "09:28",
+    "stockName" : "HJ申购",
+    "id" : "832277",
+    "stockPrice" : "98.65"
+  },
+  {
+    "stockType" : 2,
+    "id" : "312718",
+    "time" : "11:32",
+    "stockName" : "GO申购",
+    "day" : "20230512",
+    "stockPrice" : "42.86"
+  },
+  {
+    "stockName" : "AB申购",
+    "stockPrice" : "16.05",
+    "id" : "265708",
+    "day" : "20230513",
+    "time" : "00:00",
+    "stockType" : 3
+  },
+  {
+    "day" : "20230514",
+    "stockName" : "KP申购",
+    "stockPrice" : "80.34",
+    "time" : "00:00",
+    "stockType" : 3,
+    "id" : "876994"
+  },
+  {
+    "id" : "599626",
+    "stockName" : "CV申购",
+    "time" : "10:05",
+    "stockPrice" : "98.31",
+    "day" : "20230515",
+    "stockType" : 5
+  },
+  {
+    "id" : "622332",
+    "day" : "20230516",
+    "time" : "09:31",
+    "stockName" : "RV申购",
+    "stockPrice" : "70.82",
+    "stockType" : 1
+  },
+  {
+    "stockName" : "CT申购",
+    "id" : "396034",
+    "day" : "20230517",
+    "time" : "10:38",
+    "stockPrice" : "14.28",
+    "stockType" : 2
+  },
+  {
+    "id" : "081852",
+    "day" : "20230518",
+    "stockType" : 5,
+    "stockName" : "QB申购",
+    "time" : "09:42",
+    "stockPrice" : "43.36"
+  },
+  {
+    "time" : "11:28",
+    "id" : "487520",
+    "stockName" : "VX申购",
+    "stockPrice" : "20.85",
+    "day" : "20230519",
+    "stockType" : 2
+  },
+  {
+    "stockName" : "CG申购",
+    "id" : "304651",
+    "time" : "00:00",
+    "day" : "20230520",
+    "stockPrice" : "68.51",
+    "stockType" : 3
+  },
+  {
+    "stockName" : "MS申购",
+    "id" : "359436",
+    "day" : "20230521",
+    "time" : "00:00",
+    "stockPrice" : "54.43",
+    "stockType" : 3
+  },
+  {
+    "day" : "20230522",
+    "time" : "09:41",
+    "stockName" : "UC申购",
+    "id" : "696813",
+    "stockPrice" : "53.70",
+    "stockType" : 5
+  },
+  {
+    "stockPrice" : "79.19",
+    "stockType" : 1,
+    "stockName" : "MJ申购",
+    "day" : "20230523",
+    "time" : "09:17",
+    "id" : "939205"
+  },
+  {
+    "stockType" : 2,
+    "time" : "11:13",
+    "id" : "263392",
+    "stockName" : "BL申购",
+    "stockPrice" : "42.02",
+    "day" : "20230524"
+  },
+  {
+    "day" : "20230525",
+    "id" : "137363",
+    "stockType" : 1,
+    "time" : "11:45",
+    "stockName" : "MC申购",
+    "stockPrice" : "18.86"
+  },
+  {
+    "stockType" : 4,
+    "stockName" : "MX申购",
+    "time" : "11:09",
+    "stockPrice" : "91.01",
+    "id" : "067036",
+    "day" : "20230526"
+  },
+  {
+    "stockType" : 3,
+    "day" : "20230527",
+    "stockName" : "CK申购",
+    "stockPrice" : "25.99",
+    "time" : "00:00",
+    "id" : "872144"
+  },
+  {
+    "day" : "20230528",
+    "id" : "828330",
+    "time" : "00:00",
+    "stockName" : "TJ申购",
+    "stockPrice" : "54.34",
+    "stockType" : 3
+  },
+  {
+    "time" : "10:06",
+    "stockName" : "IT申购",
+    "day" : "20230529",
+    "id" : "360149",
+    "stockType" : 4,
+    "stockPrice" : "68.06"
+  },
+  {
+    "stockType" : 5,
+    "stockName" : "CH申购",
+    "id" : "126627",
+    "day" : "20230530",
+    "time" : "09:00",
+    "stockPrice" : "15.56"
+  },
+  {
+    "stockPrice" : "49.61",
+    "id" : "983882",
+    "stockType" : 2,
+    "stockName" : "XP申购",
+    "time" : "09:52",
+    "day" : "20230531"
+  },
+  {
+    "id" : "253223",
+    "stockType" : 2,
+    "stockPrice" : "78.90",
+    "day" : "20230601",
+    "time" : "11:03",
+    "stockName" : "LF申购"
+  },
+  {
+    "stockType" : 5,
+    "day" : "20230602",
+    "time" : "09:03",
+    "stockPrice" : "27.38",
+    "stockName" : "CM申购",
+    "id" : "106125"
+  },
+  {
+    "id" : "907596",
+    "day" : "20230603",
+    "time" : "00:00",
+    "stockPrice" : "77.32",
+    "stockName" : "YF申购",
+    "stockType" : 3
+  },
+  {
+    "stockName" : "IH申购",
+    "time" : "00:00",
+    "stockPrice" : "53.58",
+    "id" : "741736",
+    "day" : "20230604",
+    "stockType" : 3
+  },
+  {
+    "stockType" : 4,
+    "day" : "20230605",
+    "stockName" : "NQ申购",
+    "stockPrice" : "15.80",
+    "time" : "09:28",
+    "id" : "657727"
+  },
+  {
+    "stockType" : 1,
+    "day" : "20230606",
+    "stockName" : "TE申购",
+    "id" : "510946",
+    "time" : "11:26",
+    "stockPrice" : "19.34"
+  },
+  {
+    "stockType" : 2,
+    "id" : "042258",
+    "day" : "20230607",
+    "time" : "10:10",
+    "stockName" : "KM申购",
+    "stockPrice" : "14.42"
+  },
+  {
+    "stockType" : 5,
+    "time" : "11:00",
+    "stockPrice" : "49.32",
+    "day" : "20230608",
+    "id" : "826883",
+    "stockName" : "EC申购"
+  },
+  {
+    "stockPrice" : "61.00",
+    "id" : "332257",
+    "stockType" : 4,
+    "day" : "20230609",
+    "stockName" : "BM申购",
+    "time" : "10:28"
+  },
+  {
+    "stockName" : "YG申购",
+    "stockPrice" : "95.00",
+    "stockType" : 3,
+    "time" : "00:00",
+    "id" : "718412",
+    "day" : "20230610"
+  },
+  {
+    "time" : "00:00",
+    "id" : "760298",
+    "stockName" : "WP申购",
+    "day" : "20230611",
+    "stockPrice" : "46.00",
+    "stockType" : 3
+  },
+  {
+    "stockType" : 1,
+    "stockName" : "GL申购",
+    "id" : "726356",
+    "stockPrice" : "62.19",
+    "day" : "20230612",
+    "time" : "10:11"
+  },
+  {
+    "day" : "20230613",
+    "stockType" : 1,
+    "stockName" : "CH申购",
+    "id" : "996173",
+    "time" : "09:43",
+    "stockPrice" : "44.97"
+  },
+  {
+    "stockPrice" : "14.02",
+    "stockType" : 2,
+    "id" : "548152",
+    "stockName" : "WC申购",
+    "time" : "09:48",
+    "day" : "20230614"
+  },
+  {
+    "day" : "20230615",
+    "stockName" : "XB申购",
+    "time" : "10:22",
+    "stockType" : 4,
+    "stockPrice" : "14.83",
+    "id" : "358762"
+  },
+  {
+    "time" : "11:53",
+    "id" : "398080",
+    "stockName" : "WX申购",
+    "day" : "20230616",
+    "stockType" : 4,
+    "stockPrice" : "8.33"
+  },
+  {
+    "day" : "20230617",
+    "stockPrice" : "6.66",
+    "stockType" : 3,
+    "time" : "00:00",
+    "stockName" : "XU申购",
+    "id" : "241599"
+  },
+  {
+    "stockType" : 3,
+    "stockName" : "CU申购",
+    "time" : "00:00",
+    "id" : "872365",
+    "stockPrice" : "73.70",
+    "day" : "20230618"
+  },
+  {
+    "stockType" : 5,
+    "stockPrice" : "9.19",
+    "day" : "20230619",
+    "id" : "759102",
+    "stockName" : "WW申购",
+    "time" : "10:19"
+  },
+  {
+    "stockPrice" : "77.30",
+    "stockType" : 5,
+    "time" : "09:23",
+    "id" : "527985",
+    "stockName" : "HL申购",
+    "day" : "20230620"
+  },
+  {
+    "day" : "20230621",
+    "id" : "874858",
+    "time" : "10:37",
+    "stockPrice" : "2.52",
+    "stockType" : 1,
+    "stockName" : "CU申购"
+  },
+  {
+    "stockPrice" : "93.69",
+    "stockName" : "UY申购",
+    "stockType" : 4,
+    "id" : "709491",
+    "day" : "20230622",
+    "time" : "11:06"
+  },
+  {
+    "id" : "722976",
+    "stockName" : "OX申购",
+    "day" : "20230623",
+    "stockPrice" : "73.41",
+    "time" : "11:51",
+    "stockType" : 1
+  },
+  {
+    "day" : "20230624",
+    "id" : "486830",
+    "stockName" : "FM申购",
+    "time" : "00:00",
+    "stockType" : 3,
+    "stockPrice" : "63.48"
+  },
+  {
+    "stockPrice" : "9.78",
+    "stockType" : 3,
+    "id" : "846860",
+    "time" : "00:00",
+    "day" : "20230625",
+    "stockName" : "QZ申购"
+  },
+  {
+    "stockName" : "UG申购",
+    "stockPrice" : "24.12",
+    "stockType" : 4,
+    "id" : "520810",
+    "day" : "20230626",
+    "time" : "09:25"
+  },
+  {
+    "time" : "10:19",
+    "stockPrice" : "78.45",
+    "id" : "187814",
+    "stockName" : "MG申购",
+    "stockType" : 2,
+    "day" : "20230627"
+  },
+  {
+    "stockType" : 4,
+    "time" : "10:45",
+    "id" : "320882",
+    "day" : "20230628",
+    "stockName" : "UQ申购",
+    "stockPrice" : "45.73"
+  },
+  {
+    "time" : "10:14",
+    "stockType" : 4,
+    "stockPrice" : "3.65",
+    "id" : "530241",
+    "stockName" : "AP申购",
+    "day" : "20230629"
+  },
+  {
+    "id" : "770031",
+    "time" : "09:42",
+    "stockName" : "RJ申购",
+    "day" : "20230630",
+    "stockPrice" : "58.81",
+    "stockType" : 2
+  },
+  {
+    "id" : "484730",
+    "time" : "00:00",
+    "day" : "20230701",
+    "stockName" : "QJ申购",
+    "stockPrice" : "22.63",
+    "stockType" : 3
+  },
+  {
+    "day" : "20230702",
+    "stockName" : "VA申购",
+    "id" : "510197",
+    "time" : "00:00",
+    "stockPrice" : "0.40",
+    "stockType" : 3
+  },
+  {
+    "day" : "20230703",
+    "stockName" : "ZC申购",
+    "id" : "652174",
+    "stockPrice" : "94.41",
+    "stockType" : 5,
+    "time" : "11:43"
+  },
+  {
+    "id" : "728805",
+    "stockPrice" : "98.68",
+    "stockType" : 5,
+    "day" : "20230704",
+    "time" : "10:35",
+    "stockName" : "KG申购"
+  },
+  {
+    "id" : "454321",
+    "day" : "20230705",
+    "stockType" : 5,
+    "stockName" : "FX申购",
+    "time" : "09:48",
+    "stockPrice" : "29.66"
+  },
+  {
+    "day" : "20230706",
+    "time" : "09:02",
+    "stockType" : 4,
+    "stockPrice" : "60.54",
+    "id" : "088419",
+    "stockName" : "YM申购"
+  },
+  {
+    "stockName" : "EG申购",
+    "day" : "20230707",
+    "id" : "496303",
+    "time" : "10:34",
+    "stockPrice" : "82.77",
+    "stockType" : 1
+  },
+  {
+    "id" : "880568",
+    "day" : "20230708",
+    "stockType" : 3,
+    "stockName" : "LB申购",
+    "time" : "00:00",
+    "stockPrice" : "43.49"
+  },
+  {
+    "stockName" : "RK申购",
+    "stockType" : 3,
+    "day" : "20230709",
+    "time" : "00:00",
+    "stockPrice" : "78.18",
+    "id" : "155394"
+  },
+  {
+    "stockName" : "GK申购",
+    "stockPrice" : "10.02",
+    "day" : "20230710",
+    "id" : "355857",
+    "time" : "10:49",
+    "stockType" : 4
+  },
+  {
+    "time" : "10:32",
+    "stockName" : "QH申购",
+    "stockPrice" : "82.85",
+    "id" : "348670",
+    "day" : "20230711",
+    "stockType" : 5
+  },
+  {
+    "stockName" : "CG申购",
+    "id" : "507856",
+    "time" : "10:53",
+    "stockType" : 1,
+    "stockPrice" : "22.52",
+    "day" : "20230712"
+  },
+  {
+    "stockName" : "GZ申购",
+    "time" : "11:43",
+    "stockPrice" : "22.71",
+    "stockType" : 5,
+    "id" : "516540",
+    "day" : "20230713"
+  },
+  {
+    "stockPrice" : "34.52",
+    "stockType" : 2,
+    "id" : "275436",
+    "time" : "10:01",
+    "stockName" : "SB申购",
+    "day" : "20230714"
+  },
+  {
+    "stockType" : 3,
+    "time" : "00:00",
+    "stockName" : "AJ申购",
+    "stockPrice" : "16.66",
+    "day" : "20230715",
+    "id" : "049122"
+  },
+  {
+    "stockPrice" : "72.28",
+    "id" : "662026",
+    "day" : "20230716",
+    "stockName" : "OE申购",
+    "stockType" : 3,
+    "time" : "00:00"
+  },
+  {
+    "time" : "10:49",
+    "stockName" : "NV申购",
+    "day" : "20230717",
+    "stockPrice" : "57.01",
+    "stockType" : 4,
+    "id" : "636799"
+  },
+  {
+    "stockName" : "LR申购",
+    "time" : "09:17",
+    "stockPrice" : "19.43",
+    "stockType" : 1,
+    "day" : "20230718",
+    "id" : "245996"
+  },
+  {
+    "time" : "11:08",
+    "day" : "20230719",
+    "stockName" : "UU申购",
+    "stockPrice" : "94.47",
+    "stockType" : 2,
+    "id" : "030999"
+  },
+  {
+    "time" : "11:49",
+    "id" : "934694",
+    "stockName" : "AV申购",
+    "stockType" : 4,
+    "stockPrice" : "53.28",
+    "day" : "20230720"
+  },
+  {
+    "stockType" : 1,
+    "stockName" : "BA申购",
+    "id" : "475059",
+    "day" : "20230721",
+    "time" : "10:48",
+    "stockPrice" : "33.65"
+  },
+  {
+    "day" : "20230722",
+    "stockType" : 3,
+    "time" : "00:00",
+    "stockName" : "XU申购",
+    "id" : "008393",
+    "stockPrice" : "3.02"
+  },
+  {
+    "day" : "20230723",
+    "time" : "00:00",
+    "stockPrice" : "35.28",
+    "id" : "386844",
+    "stockType" : 3,
+    "stockName" : "LH申购"
+  },
+  {
+    "id" : "340818",
+    "day" : "20230724",
+    "stockName" : "RJ申购",
+    "time" : "11:50",
+    "stockPrice" : "93.00",
+    "stockType" : 2
+  },
+  {
+    "stockPrice" : "23.57",
+    "stockName" : "LF申购",
+    "time" : "09:41",
+    "day" : "20230725",
+    "id" : "606882",
+    "stockType" : 4
+  },
+  {
+    "stockPrice" : "81.27",
+    "time" : "09:26",
+    "id" : "788361",
+    "stockName" : "LN申购",
+    "stockType" : 1,
+    "day" : "20230726"
+  },
+  {
+    "id" : "950591",
+    "day" : "20230727",
+    "stockName" : "CZ申购",
+    "time" : "10:29",
+    "stockPrice" : "47.15",
+    "stockType" : 2
+  },
+  {
+    "stockName" : "SR申购",
+    "id" : "118622",
+    "time" : "11:43",
+    "day" : "20230728",
+    "stockPrice" : "17.37",
+    "stockType" : 2
+  },
+  {
+    "stockName" : "UA申购",
+    "time" : "00:00",
+    "stockPrice" : "95.85",
+    "day" : "20230729",
+    "stockType" : 3,
+    "id" : "442030"
+  },
+  {
+    "stockName" : "LI申购",
+    "stockType" : 3,
+    "day" : "20230730",
+    "id" : "355990",
+    "time" : "00:00",
+    "stockPrice" : "57.76"
+  },
+  {
+    "day" : "20230731",
+    "stockPrice" : "41.82",
+    "time" : "11:49",
+    "id" : "747957",
+    "stockName" : "TD申购",
+    "stockType" : 2
+  },
+  {
+    "id" : "025830",
+    "day" : "20230801",
+    "stockPrice" : "91.92",
+    "stockName" : "JP申购",
+    "time" : "10:46",
+    "stockType" : 4
+  },
+  {
+    "stockPrice" : "65.95",
+    "day" : "20230802",
+    "stockName" : "IP申购",
+    "stockType" : 5,
+    "id" : "425427",
+    "time" : "09:05"
+  },
+  {
+    "stockType" : 4,
+    "stockName" : "BH申购",
+    "time" : "10:41",
+    "day" : "20230803",
+    "id" : "449624",
+    "stockPrice" : "87.70"
+  },
+  {
+    "id" : "703634",
+    "time" : "11:56",
+    "stockPrice" : "9.96",
+    "stockType" : 4,
+    "stockName" : "BB申购",
+    "day" : "20230804"
+  },
+  {
+    "id" : "323770",
+    "stockPrice" : "96.49",
+    "stockName" : "HY申购",
+    "day" : "20230805",
+    "time" : "00:00",
+    "stockType" : 3
+  }
+]

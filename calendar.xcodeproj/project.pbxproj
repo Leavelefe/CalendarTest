@@ -27,6 +27,8 @@
 		9D2927F329A4FBD000717FFA /* AddCalendarEventImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2927F229A4FBD000717FFA /* AddCalendarEventImage.swift */; };
 		9D2A574B29A76018005B879C /* EventScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A574A29A76018005B879C /* EventScrollView.swift */; };
 		9D2A574D29A7609B005B879C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2A574C29A7609B005B879C /* CalendarView.swift */; };
+		9D2A575129A8877A005B879C /* EventData.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9D2A575029A8877A005B879C /* EventData.geojson */; };
+		9D2A575729A8B6BD005B879C /* EcoData.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9D2A575629A8B6BD005B879C /* EcoData.geojson */; };
 		9DBA53C8299A1AB600CDE066 /* Array+format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C7299A1AB600CDE066 /* Array+format.swift */; };
 		9DBA53CA299B5C6800CDE066 /* StockFinancialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */; };
 		9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */; };
@@ -56,6 +58,9 @@
 		9D2927F229A4FBD000717FFA /* AddCalendarEventImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCalendarEventImage.swift; sourceTree = "<group>"; };
 		9D2A574A29A76018005B879C /* EventScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventScrollView.swift; sourceTree = "<group>"; };
 		9D2A574C29A7609B005B879C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		9D2A575029A8877A005B879C /* EventData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = EventData.geojson; sourceTree = "<group>"; };
+		9D2A575329A8A4EC005B879C /* StockItemsScript.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StockItemsScript.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		9D2A575629A8B6BD005B879C /* EcoData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = EcoData.geojson; sourceTree = "<group>"; };
 		9DBA53C7299A1AB600CDE066 /* Array+format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+format.swift"; sourceTree = "<group>"; };
 		9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockFinancialView.swift; sourceTree = "<group>"; };
 		9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcnomicStaticView.swift; sourceTree = "<group>"; };
@@ -180,6 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				9D2927E2299F508200717FFA /* JSONData.swift */,
+				9D2A575229A8A4AA005B879C /* Script */,
+				9D2A575029A8877A005B879C /* EventData.geojson */,
+				9D2A575629A8B6BD005B879C /* EcoData.geojson */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -192,6 +200,14 @@
 				9DBA53C9299B5C6800CDE066 /* StockFinancialView.swift */,
 			);
 			path = EventScrollViewContent;
+			sourceTree = "<group>";
+		};
+		9D2A575229A8A4AA005B879C /* Script */ = {
+			isa = PBXGroup;
+			children = (
+				9D2A575329A8A4EC005B879C /* StockItemsScript.playground */,
+			);
+			path = Script;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,8 +268,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D2A575129A8877A005B879C /* EventData.geojson in Resources */,
 				9D13B7122990957E008669D7 /* Preview Assets.xcassets in Resources */,
 				9D13B70F2990957E008669D7 /* Assets.xcassets in Resources */,
+				9D2A575729A8B6BD005B879C /* EcoData.geojson in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

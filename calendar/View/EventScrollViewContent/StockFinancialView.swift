@@ -173,7 +173,7 @@ struct Stockview:View {
                 
                 HStack(alignment: .bottom){
                     Text("发行价").font(.system(size: 15))
-                    Text(String(stockItem.stockPrice!)).font(.system(size: 20, weight:.medium))
+                    Text(stockItem.stockPrice!).font(.system(size: 20, weight:.medium))
                         .foregroundColor(.red)
                     Text("元").font(.system(size: 15))
                     Spacer()

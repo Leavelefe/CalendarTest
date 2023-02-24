@@ -17,7 +17,7 @@ struct NewEcoInfo: Identifiable {
     private(set) var ecoList: [NewEcoItem]?
 }
 
-struct NewEcoItem: Identifiable, Hashable {
+struct NewEcoItem: Identifiable, Hashable, Decodable {
     //Info ID
     var id: String
     //YYYYMMDD

@@ -39,7 +39,7 @@ struct CalendarEvent {
         self.selectedDate = selectedDate
         self.stockInfolist = []
         self.ecoInfolist = []
-        
+        print(buffer)
         var bufferDay = selectedDate
         for _ in 0..<2 {
             let day = bufferDay.getStringID()
@@ -51,9 +51,11 @@ struct CalendarEvent {
 
             
             //API to request Stock JSON data, according to date
-            for data in RequestData {
+            for data in RequestStockData {
                 if day == data.day {
                     addStockByFilter(&stockItems, add: data, filteredBy: filter)
+                } else if data.day > day {
+                    break
                 }
             }
             
@@ -166,9 +168,11 @@ struct CalendarEvent {
                 let day = bufferDay.getStringID()
                 var stockItems:[[NewStockItem]] = []
                 
-                for data in RequestData {
+                for data in RequestStockData {
                     if day == data.day {
                         addStockByFilter(&stockItems, add: data, filteredBy: filter)
+                    } else if data.day > day {
+                        break
                     }
                 }
                 

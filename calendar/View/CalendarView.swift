@@ -11,6 +11,8 @@ import SwiftUI
 struct CalendarView: View {
     @ObservedObject var viewModel: CalendarManageViewModel
     @State private var offset: CGFloat = 0
+    @State private var changeMonth = 1
+    @State private var cancelSwipeAnimation = 1
     
     var weeks: [Weekday] = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     
@@ -45,10 +47,13 @@ struct CalendarView: View {
                                 viewModel.swithMode(.Week)
                             }
                         }//.animation(nil)
+                        .animation(nil, value: changeMonth)
+                        .animation(nil, value: cancelSwipeAnimation)
                         
                 }
                 .offset(x: offset)
                 .transition(.offset(x: offset > 0 ? UIScreen.main.bounds.width : -UIScreen.main.bounds.width))
+                .animation(nil, value: cancelSwipeAnimation)
                 if offset != 0 {
                     CalendarWeekListView(items: viewModel.previousOrNextDays(isPreious: offset > 0)) {
                         day in
@@ -60,10 +65,12 @@ struct CalendarView: View {
                                 withAnimation {
                                     viewModel.swithMode(.Week)
                                 }
-                            }//.transition(.empty)
+                            }.transition(.empty)
+                            .animation(nil, value: cancelSwipeAnimation)
                             
                     }.offset(x: offset - (offset > 0 ? UIScreen.main.bounds.width : -UIScreen.main.bounds.width))
                         .transition(.offset(x: offset < 0 ? UIScreen.main.bounds.width : -UIScreen.main.bounds.width))
+                        .animation(nil, value: cancelSwipeAnimation)
                 }
             }
             //.animation(.easeInOut(duration: 1))
@@ -84,9 +91,12 @@ struct CalendarView: View {
                                 offset = screenWidth
                             }
                         }
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                            withAnimation {
+                                viewModel.swipeMonthOrWeek(isLeft)
+                                cancelSwipeAnimation += 1
+                            }
                             offset = 0
-                            viewModel.swipeMonthOrWeek(isLeft)
                         }
                         
                     } else {
@@ -113,6 +123,7 @@ struct CalendarView: View {
                 }.onTapGesture {
                     withAnimation {
                         viewModel.swithMode(viewModel.mode == .Month ? .Week : .Month)
+                        changeMonth += 1
                     }
                 }
                 HStack {
@@ -150,8 +161,9 @@ struct CalendarView: View {
     }
     var month: some View {
         Button( action: {
-            withAnimation {
+            withAnimation() {
                 viewModel.swithMode(.Month)
+                changeMonth += 1
             }
         }){
             Text("月")
