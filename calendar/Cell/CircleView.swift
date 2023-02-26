@@ -12,7 +12,7 @@ struct CircleView: View {
     let day: DayModel
     
     var body: some View {
-        let circleColor: Color = day.toDO ? .white : .mint
+        let circleColor: Color = day.toDO ? .mint : .white
         ZStack {
             let circleShape = Circle()
             let textData = day.isToday ? "今" : String(day.date.get(.day))

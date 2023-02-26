@@ -34,6 +34,9 @@
 		9DBA53CC299B5D6700CDE066 /* EcnomicStaticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */; };
 		9DBA53CE299B791400CDE066 /* NewStockInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CD299B791400CDE066 /* NewStockInfo.swift */; };
 		9DBA53D0299CADF100CDE066 /* CalendarWeekListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */; };
+		9DF8F30229AB9B4A00821F2B /* ToDoData.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8F30129AB9B4A00821F2B /* ToDoData.geojson */; };
+		9DF8F30429ABA53600821F2B /* GenerateToDoData.py in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8F30329ABA53600821F2B /* GenerateToDoData.py */; };
+		9DF8F30629ABA57100821F2B /* GenerateEcoInfoScript.py in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8F30529ABA57100821F2B /* GenerateEcoInfoScript.py */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		9DBA53CB299B5D6700CDE066 /* EcnomicStaticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcnomicStaticView.swift; sourceTree = "<group>"; };
 		9DBA53CD299B791400CDE066 /* NewStockInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStockInfo.swift; sourceTree = "<group>"; };
 		9DBA53CF299CADF100CDE066 /* CalendarWeekListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarWeekListView.swift; sourceTree = "<group>"; };
+		9DF8F30129AB9B4A00821F2B /* ToDoData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDoData.geojson; sourceTree = "<group>"; };
+		9DF8F30329ABA53600821F2B /* GenerateToDoData.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = GenerateToDoData.py; sourceTree = "<group>"; };
+		9DF8F30529ABA57100821F2B /* GenerateEcoInfoScript.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = GenerateEcoInfoScript.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,7 @@
 				9D2A575229A8A4AA005B879C /* Script */,
 				9D2A575029A8877A005B879C /* EventData.geojson */,
 				9D2A575629A8B6BD005B879C /* EcoData.geojson */,
+				9DF8F30129AB9B4A00821F2B /* ToDoData.geojson */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -206,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				9D2A575329A8A4EC005B879C /* StockItemsScript.playground */,
+				9DF8F30329ABA53600821F2B /* GenerateToDoData.py */,
+				9DF8F30529ABA57100821F2B /* GenerateEcoInfoScript.py */,
 			);
 			path = Script;
 			sourceTree = "<group>";
@@ -269,7 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2A575129A8877A005B879C /* EventData.geojson in Resources */,
+				9DF8F30429ABA53600821F2B /* GenerateToDoData.py in Resources */,
+				9DF8F30629ABA57100821F2B /* GenerateEcoInfoScript.py in Resources */,
 				9D13B7122990957E008669D7 /* Preview Assets.xcassets in Resources */,
+				9DF8F30229AB9B4A00821F2B /* ToDoData.geojson in Resources */,
 				9D13B70F2990957E008669D7 /* Assets.xcassets in Resources */,
 				9D2A575729A8B6BD005B879C /* EcoData.geojson in Resources */,
 			);

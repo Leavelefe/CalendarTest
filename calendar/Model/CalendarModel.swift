@@ -39,7 +39,7 @@ struct CalendarModel {
         locatedDay = updateDate
         //locatedIndex = getLocatedIndex(date: today)
         let daySet = beigningMode == .Month ? myCalendar.monthDays(oneDay: locatedDay) : myCalendar.weekDays(oneDay: locatedDay)
-        //print(daySet)
+        //print(toDoData)
         //Mark: daySet_Series Detial need be filled later
         for index in 0..<daySet.count {
             let isCurrentMonth: Bool = mode == .Month ? myCalendar.isCurrentMonth(is: daySet[index], equalto: locatedDay) : true
@@ -48,7 +48,8 @@ struct CalendarModel {
             if isSelectedDay {
                 locatedIndex = index
             }
-            daySet_Series.append(DayModel(id: index, picked: isSelectedDay, isToday: isToday, isCurrentMonth: isCurrentMonth, date: daySet[index]))
+            let toDo = analyzeDataToDo(for: daySet[index])
+            daySet_Series.append(DayModel(id: index, picked: isSelectedDay, isToday: isToday, toDO: toDo!, isCurrentMonth: isCurrentMonth, date: daySet[index]))
         }
                     
     }
@@ -139,7 +140,7 @@ struct CalendarModel {
 //            if isSelectedDay {
 //                locatedIndex = index
 //            }
-            daySet_buffer.append(DayModel(id: index, picked: false, isToday: isToday, isCurrentMonth: isCurrentMonth, date: daySet[index]))
+            daySet_buffer.append(DayModel(id: index, picked: false, isToday: isToday, toDO: analyzeDataToDo(for: daySet[index])!, isCurrentMonth: isCurrentMonth, date: daySet[index]))
         }
         return daySet_buffer
     }

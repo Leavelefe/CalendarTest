@@ -39,7 +39,7 @@ struct CalendarEvent {
         self.selectedDate = selectedDate
         self.stockInfolist = []
         self.ecoInfolist = []
-        print(buffer)
+        //print(buffer)
         var bufferDay = selectedDate
         for _ in 0..<2 {
             let day = bufferDay.getStringID()
