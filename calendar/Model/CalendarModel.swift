@@ -13,6 +13,7 @@ struct CalendarModel {
     private(set) var today: Date = Date()
     private(set) var mode: ModeType = .Week
     private(set) var locatedDay: Date
+    private(set) var lengthNotEqual = false
     
     /// 1 - Monday 2-Tueday ......
     private(set) var locatedIndex: Int? {
@@ -90,6 +91,7 @@ struct CalendarModel {
     /// Swipe to the next or previos month or week
     /// - Parameter newMode:
     mutating func changeMonthOrWeek(_ isPrevios: Bool) {
+        let bufferLength: Int = Int(ceil(Double(daySet_Series.count / 7)))
         if mode == .Week {
             if isPrevios {
                 self = .init(beigningMode: .Week, updateDate: myCalendar.previousWeek(locatedDay))
@@ -102,6 +104,10 @@ struct CalendarModel {
             } else {
                 self = .init(beigningMode: .Month, updateDate: myCalendar.nextMonth(locatedDay))
             }
+        }
+        let currentLength: Int = Int(ceil(Double(daySet_Series.count / 7)))
+        if bufferLength == currentLength {
+            lengthNotEqual = true
         }
     }
     

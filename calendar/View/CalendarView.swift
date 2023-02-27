@@ -12,9 +12,10 @@ struct CalendarView: View {
     @ObservedObject var viewModel: CalendarManageViewModel
     @State private var offset: CGFloat = 0
     @State private var changeMonth = 1
+    @Binding var cancelSuperViewSwipeAnimation: Int
     @State private var cancelSwipeAnimation = 1
     
-    var weeks: [Weekday] = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+    //var weeks: [Weekday] = ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     
     @State var direction = ""
     //@State var showAnimation: Bool = false
@@ -30,7 +31,7 @@ struct CalendarView: View {
             }
             .padding(.horizontal)
             
-            CalendarWeekListView(items: weeks) {
+            CalendarWeekListView(items: viewModel.weekDays) {
                 weekday in
                     Text(weekday).font(.system(size: 10)).foregroundColor(.gray)
             }
@@ -53,7 +54,7 @@ struct CalendarView: View {
                 }
                 .offset(x: offset)
                 .transition(.offset(x: offset > 0 ? UIScreen.main.bounds.width : -UIScreen.main.bounds.width))
-                .animation(nil, value: cancelSwipeAnimation)
+                //.animation(nil, value: cancelSwipeAnimation)
                 if offset != 0 {
                     CalendarWeekListView(items: viewModel.previousOrNextDays(isPreious: offset > 0)) {
                         day in
@@ -70,7 +71,7 @@ struct CalendarView: View {
                             
                     }.offset(x: offset - (offset > 0 ? UIScreen.main.bounds.width : -UIScreen.main.bounds.width))
                         .transition(.offset(x: offset < 0 ? UIScreen.main.bounds.width : -UIScreen.main.bounds.width))
-                        .animation(nil, value: cancelSwipeAnimation)
+                        //.animation(nil, value: cancelSwipeAnimation)
                 }
             }
             //.animation(.easeInOut(duration: 1))
@@ -95,6 +96,9 @@ struct CalendarView: View {
                             withAnimation {
                                 viewModel.swipeMonthOrWeek(isLeft)
                                 cancelSwipeAnimation += 1
+                                if viewModel.daySeriesLengthNotEqual {
+                                    cancelSuperViewSwipeAnimation += 1
+                                }
                             }
                             offset = 0
                         }
@@ -142,7 +146,7 @@ struct CalendarView: View {
                         }
                     }
                 }
-            }
+            }.animation(nil, value: cancelSwipeAnimation)
         }
         .background(Color.white)
         //.transition(.testAction)

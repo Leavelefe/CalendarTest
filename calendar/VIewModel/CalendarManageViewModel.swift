@@ -13,7 +13,6 @@ protocol CalendarManagerDelegate: AnyObject {
 }
 
 class CalendarManageViewModel: ObservableObject {
-    static let weekDays =  ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     weak var delegate: CalendarManagerDelegate?
     
     private static func createCalendar() -> CalendarModel {
@@ -28,6 +27,10 @@ class CalendarManageViewModel: ObservableObject {
     
     var days: Array<DayModel> {
         model.daySet_Series
+    }
+    
+    var weekDays: [Weekday] {
+        ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
     }
     
     var TopTextDate: String {
@@ -56,6 +59,10 @@ class CalendarManageViewModel: ObservableObject {
     
     func BackToToday() {
         model.BackToToday()
+    }
+    
+    var daySeriesLengthNotEqual: Bool {
+        model.lengthNotEqual
     }
     
 }

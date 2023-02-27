@@ -12,19 +12,21 @@ struct EventScrollView: View {
     @State private var isLoading = false
     @State private var isRefreshing = false
     @State private var items = Array(0..<10)
+    @Binding var cancelSwipeAnimation: Int
     
     var body: some View {
         ScrollView {
             if viewModel.showEco {
                 ForEach(viewModel.ecoInfos) { info in
                     EcnomicStaticView(info: info).transition(.empty)
-                }
+                }.animation(nil, value: cancelSwipeAnimation)
             } else {
                 ForEach(viewModel.stockInfos) { info in
                     StockFinancialView(info: info).transition(.empty)
-                }
+                }.animation(nil, value: cancelSwipeAnimation)
             }
-        }.refreshable {
+        }//.animation(nil, value: cancelSwipeAnimation)
+        .refreshable {
             print("hohooh")
         }
     }
