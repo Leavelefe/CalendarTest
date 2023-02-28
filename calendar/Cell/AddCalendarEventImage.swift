@@ -8,51 +8,65 @@
 import SwiftUI
 
 struct AddCalendarEventView: View {
+    let eventDay: Date
+    let eventType: Int
+    let key: String
     @Binding var showingConfirmationSheet: Bool
-    @Binding var date: Date
     @Binding var textFieldString: String
+    
+    @State var selectedDate: Date
+    @State var repeatType: Repeat = .OnlyToday
+    @State var reminderType: Reminder = .WhenItHappend
+    @ObservedObject var viewModel: CalendarDataViewModel
+    //@State var chooseNewDate: Bool = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
+    
     var body: some View {
         VStack {
             NavigationStack {
                 VStack(spacing: 0) {
                     HStack {
                         Button("取消") {
-                            presentationMode.wrappedValue.dismiss()
+                            withAnimation {
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }.padding()
                         Spacer()
                         Text("确认添加事件至系统日历")
                         Spacer()
                         Button("确认") {
-                            presentationMode.wrappedValue.dismiss()
+                            withAnimation {
+                                viewModel.saveEventByKey(set: CustomizedCalendarEvent(title: textFieldString, date: selectedDate, eventType: eventType, repeatType: repeatType, reminderType: reminderType, id: key), byKey: key)
+                                presentationMode.wrappedValue.dismiss()
+                            }
                         }.padding()
                     }
                     List {
-                        TextField("", text: $textFieldString)
-                        NavigationLink(destination: DateSelectionView(date: $date).navigationBarBackButtonHidden(true)) {
+                        TextField("事件名称，不超过21个字符", text: $textFieldString)
+                        NavigationLink(destination: DateSelectionView(date: $selectedDate, eventDay: eventDay).navigationBarBackButtonHidden(true)) {
                             HStack {
                                 Text("时间")
                                 Spacer()
-                                Text(date.getFullStringDate())
+                                Text(selectedDate.getFullStringDate())
                                     .font(.system(size: 14))
                             }
                         }
                         //DatePicker(selection: $date, label: { Text("时间") })
-                        NavigationLink(destination: RepeatSettingView().navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: RepeatSettingView(selectedRepeat: $repeatType).navigationBarBackButtonHidden(true)) {
                             HStack {
                                 Text("重复")
                                 Spacer()
-                                Text("仅此一天")
+                                Text(getRelatedRepeatText(repeatType))
                                     .font(.system(size: 14))
                                     .foregroundColor(.secondary)
                             }
                         }
-                        NavigationLink(destination: ReminderSettingView().navigationBarBackButtonHidden(true)) {
+                        NavigationLink(destination: ReminderSettingView(selectedReminder: $reminderType).navigationBarBackButtonHidden(true)) {
                             HStack {
                                 Text("提醒")
                                 Spacer()
-                                Text("事件发生时")
+                                Text(getRelatedReminderText(reminderType))
                                     .font(.system(size: 14))
                                     .foregroundColor(.secondary)
                             }
@@ -68,13 +82,17 @@ struct AddCalendarEventSheet: ViewModifier {
     @State private var showingConfirmationSheet = false
     @State private var date: Date
     @State private var textFieldString: String
-
+    @ObservedObject var viewModel: CalendarDataViewModel
+    
+    private let cusomizedEvent: CustomizedCalendarEvent
     let title: String
     let eventDay: Date
 
-    init(title: String, eventDay: Date) {
-        self.title = title
-        self.eventDay = eventDay
+    init(cusomizedEvent: CustomizedCalendarEvent, viewModel: CalendarDataViewModel) {
+        self.viewModel = viewModel
+        self.cusomizedEvent = cusomizedEvent
+        self.title = cusomizedEvent.title
+        self.eventDay = cusomizedEvent.date
         self._textFieldString = State(initialValue: title)
         self._date = State(initialValue: eventDay)
     }
@@ -85,25 +103,29 @@ struct AddCalendarEventSheet: ViewModifier {
                 self.showingConfirmationSheet = true
             }
             .sheet(isPresented: $showingConfirmationSheet) {
-                AddCalendarEventView(showingConfirmationSheet: $showingConfirmationSheet, date: $date, textFieldString: $textFieldString)
+                AddCalendarEventView(eventDay: date, eventType: cusomizedEvent.eventType, key: cusomizedEvent.id, showingConfirmationSheet: $showingConfirmationSheet, textFieldString: $textFieldString, selectedDate: date, repeatType: cusomizedEvent.repeatType, reminderType: cusomizedEvent.reminderType, viewModel: viewModel)
             }
     }
 }
 
 extension View {
-    func addCalendarEventSheet(title: String, date: Date) -> some View {
-        self.modifier(AddCalendarEventSheet(title: title, eventDay: date))
+    func addCalendarEventSheet(cusomizedEvent: CustomizedCalendarEvent, viewModel: CalendarDataViewModel) -> some View {
+        self.modifier(AddCalendarEventSheet(cusomizedEvent: cusomizedEvent, viewModel: viewModel))
     }
 }
 
 struct DateSelectionView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @Binding var date: Date
+    //@Binding var chooseNewDate: Bool
+    
+    let eventDay: Date
     
     var body: some View {
         VStack {
             HStack {
                 Button("取消") {
+                    date = eventDay
                     presentationMode.wrappedValue.dismiss()
                 }
                 Spacer()
@@ -122,19 +144,19 @@ struct DateSelectionView: View {
     }
 }
 
+
+
+
 struct RepeatSettingView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    enum Repeat: String, CaseIterable, Identifiable {
-        case OnlyToday, EveryDay, EveryWeek, EveryMonth
-        var id: Self { self }
-    }
 
-    @State private var selectedRepeat: Repeat = .OnlyToday
+    @Binding var selectedRepeat: Repeat
     
     var body: some View {
         VStack {
             HStack {
                 Button("取消") {
+                    selectedRepeat = .OnlyToday
                     presentationMode.wrappedValue.dismiss()
                 }
                 Spacer()
@@ -159,17 +181,14 @@ struct RepeatSettingView: View {
 
 struct ReminderSettingView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    enum Reminder: String, CaseIterable, Identifiable {
-        case WhenItHappend, FiveMinutesEarly, FifteenMinutesEarly, HarfHourEarly, OneHourEarly
-        var id: Self { self }
-    }
 
-    @State private var selectedReminder: Reminder = .WhenItHappend
+    @Binding var selectedReminder: Reminder
     
     var body: some View {
         VStack {
             HStack {
                 Button("取消") {
+                    selectedReminder = .WhenItHappend
                     presentationMode.wrappedValue.dismiss()
                 }
                 Spacer()
@@ -195,10 +214,13 @@ struct ReminderSettingView: View {
 
 struct AddCalendarEventImage_Previews: PreviewProvider {
     static var previews: some View {
+
         Image(systemName: "calendar.badge.plus")
             .foregroundColor(.gray)
             .padding(.trailing, 13)
             .padding(.leading, 0)
-            .addCalendarEventSheet(title: "阿呀呀", date: Date())
+            .addCalendarEventSheet(cusomizedEvent: CustomizedCalendarEvent(title: "Meeting", date: Date(), eventType: 3, repeatType: .EveryMonth, reminderType: .FifteenMinutesEarly, id: "1232"), viewModel: CalendarDataViewModel())
     }
 }
+
+

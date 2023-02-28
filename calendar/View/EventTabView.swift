@@ -43,9 +43,9 @@ struct EventTabView: View {
                 Spacer()
                 HStack{
                     if showSelections {
-                        Image(systemName: "xmark").font(.system(size: 12))
+                        Image("calendar_close").font(.system(size: 12))
                     } else {
-                        Image(systemName: "star").font(.system(size: 10))
+                        Image("calendar_flu_icon").font(.system(size: 10))
                             .padding(.trailing, -5)
                         Text("筛选").font(.system(size: 11))
                     }

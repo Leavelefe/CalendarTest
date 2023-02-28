@@ -37,6 +37,8 @@
 		9DF8F30229AB9B4A00821F2B /* ToDoData.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8F30129AB9B4A00821F2B /* ToDoData.geojson */; };
 		9DF8F30429ABA53600821F2B /* GenerateToDoData.py in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8F30329ABA53600821F2B /* GenerateToDoData.py */; };
 		9DF8F30629ABA57100821F2B /* GenerateEcoInfoScript.py in Resources */ = {isa = PBXBuildFile; fileRef = 9DF8F30529ABA57100821F2B /* GenerateEcoInfoScript.py */; };
+		9DF8F30829ADD0DE00821F2B /* CalendarDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF8F30729ADD0DE00821F2B /* CalendarDataViewModel.swift */; };
+		9DF8F30C29ADD29600821F2B /* CusomizedCalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF8F30B29ADD29600821F2B /* CusomizedCalendarData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		9DF8F30129AB9B4A00821F2B /* ToDoData.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = ToDoData.geojson; sourceTree = "<group>"; };
 		9DF8F30329ABA53600821F2B /* GenerateToDoData.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = GenerateToDoData.py; sourceTree = "<group>"; };
 		9DF8F30529ABA57100821F2B /* GenerateEcoInfoScript.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = GenerateEcoInfoScript.py; sourceTree = "<group>"; };
+		9DF8F30729ADD0DE00821F2B /* CalendarDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDataViewModel.swift; sourceTree = "<group>"; };
+		9DF8F30B29ADD29600821F2B /* CusomizedCalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusomizedCalendarData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 				9D2927E829A3159500717FFA /* NewEcoInfo.swift */,
 				9D13B75429937408008669D7 /* CalendarModel.swift */,
 				9D2927DD299F29BF00717FFA /* CalendarEvent.swift */,
+				9DF8F30B29ADD29600821F2B /* CusomizedCalendarData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			children = (
 				9D13B72329921521008669D7 /* CalendarManageViewModel.swift */,
 				9D2927E4299F592500717FFA /* CalendarEventManager.swift */,
+				9DF8F30729ADD0DE00821F2B /* CalendarDataViewModel.swift */,
 			);
 			path = VIewModel;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DF8F30C29ADD29600821F2B /* CusomizedCalendarData.swift in Sources */,
 				9D2A574B29A76018005B879C /* EventScrollView.swift in Sources */,
 				9DBA53D0299CADF100CDE066 /* CalendarWeekListView.swift in Sources */,
 				9D2A574D29A7609B005B879C /* CalendarView.swift in Sources */,
@@ -316,6 +323,7 @@
 				9D2927EF29A44D7600717FFA /* CircleView.swift in Sources */,
 				9D13B70B2990957B008669D7 /* calendarApp.swift in Sources */,
 				9DBA53C8299A1AB600CDE066 /* Array+format.swift in Sources */,
+				9DF8F30829ADD0DE00821F2B /* CalendarDataViewModel.swift in Sources */,
 				9D13B72429921521008669D7 /* CalendarManageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

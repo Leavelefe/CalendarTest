@@ -9,25 +9,28 @@ import SwiftUI
 
 struct StockFinancialView: View {
     let info: NewStockInfo
+    @ObservedObject var dataViewModel: CalendarDataViewModel
     
     var body: some View {
         VStack(spacing: 5){
             DateView(chooseDay: info.id)
                 //No Event status
+                //Mark: && No eventType 3 events
             if info.possessData == 0 {
                 StockStyleStack {
                     VStack {
                         Spacer()
                         HStack {
-                            Image(systemName: "square.and.pencil")
+                            Image("calendar_today_nodata")
                                 .resizable()
-                                .frame(width: 40, height: 40)
+                                .frame(width: 100, height: 70)
                                 .foregroundColor(.blue)
-                                .addCalendarEventSheet(title: "事件名称", date: info.id)
+                                //When eventType = 3, change id inside addCalendarEventSheet
+                                .addCalendarEventSheet(cusomizedEvent: dataViewModel.generateEventBufferData(title: "", date: info.id, eventType: 3, id: nil), viewModel: dataViewModel)
                         }
                         HStack {
                             Spacer()
-                            Image(systemName: "plus.circle")
+                            Image("calendar_add_event")
                                 .resizable()
                                 .frame(width: 13, height: 13)
                                 .foregroundColor(.blue)
@@ -45,10 +48,10 @@ struct StockFinancialView: View {
                     stockList in
                     StockStyleStack {
                         VStack {
-                            TitleView(stockItem: stockList[0], chooseType: stockList.first!.stockType)
+                            TitleView(dataViewModel: dataViewModel, stockItem: stockList[0], chooseType: stockList.first!.stockType)
                             ForEach(stockList) {
                                 stock in
-                                Stockview(stockItem: stock)
+                                Stockview(dataViewModel: dataViewModel, stockItem: stock)
                             }
                         }
                     }
@@ -86,6 +89,7 @@ struct DateView: View {
 }
 
 struct TitleView: View {
+    @ObservedObject var dataViewModel: CalendarDataViewModel
     let stockItem: NewStockItem
     let chooseType: Int
     
@@ -94,12 +98,12 @@ struct TitleView: View {
             //1.其他
             //2.休市提醒
             if chooseType == 3 {
-                Image(systemName: "square.circle.fill")
+                Image("calendar_closedmarket")
                     .foregroundColor(.yellow)
                     .padding(.leading, 7)
                     .padding(.vertical, 15)
             } else {
-                Image(systemName: "e.square")
+                Image("mine_calendar_stock")
                     .foregroundColor(.red)
                     .padding(.leading, 7)
                     .padding(.vertical, 15)
@@ -129,16 +133,22 @@ struct TitleView: View {
             Spacer()
             
             if chooseType == 3 {
-                Image(systemName: "calendar.badge.plus")
-                    .foregroundColor(.gray)
-                    .padding([.horizontal], 10)
-                    .addCalendarEventSheet(title: stockItem.getTitle(), date: stockItem.getDate())
+                if let existingCalendarEvent = dataViewModel.events.first(where: { $0.id == stockItem.id }) {
+                    Image("calendar_icon_add_event_success")
+                        .padding([.horizontal], 15)
+                        .addCalendarEventSheet(cusomizedEvent: existingCalendarEvent, viewModel: dataViewModel)
+                } else {
+                    Image("calendar_icon_add_event")
+                        .padding([.horizontal], 15)
+                        .addCalendarEventSheet(cusomizedEvent: dataViewModel.generateEventBufferData(title: stockItem.getTitle(), date: stockItem.getDate(), eventType: 1, id: stockItem.id), viewModel: dataViewModel)
+                }
             }
         }
     }
 }
 
 struct Stockview:View {
+    @ObservedObject var dataViewModel: CalendarDataViewModel
     let stockItem: NewStockItem
     
     var body: some View {
@@ -162,12 +172,15 @@ struct Stockview:View {
                     Text("・新股").font(.system(size: 13, weight:.light))
                         .foregroundColor(.orange)
                     Spacer()
-                    Image(systemName: "calendar.badge.plus")
-                        .foregroundColor(.gray)
-                        .addCalendarEventSheet(title: stockItem.getTitle(), date: stockItem.getDate())
-    //                    .onTapGesture {
-    //                        self.isShowingBottomView.toggle()
-    //                    }
+                    if let existingCalendarEvent = dataViewModel.events.first(where: { $0.id == stockItem.id }) {
+                        Image("calendar_icon_add_event_success")
+                            .padding(.trailing, -20)
+                            .addCalendarEventSheet(cusomizedEvent: existingCalendarEvent, viewModel: dataViewModel)
+                    } else {
+                        Image("calendar_icon_add_event")
+                            .padding(.trailing, -20)
+                            .addCalendarEventSheet(cusomizedEvent: dataViewModel.generateEventBufferData(title: stockItem.getTitle(), date: stockItem.getDate(), eventType: 1, id: stockItem.id), viewModel: dataViewModel)
+                    }
                     
                 }.padding([.horizontal], 30)
                 

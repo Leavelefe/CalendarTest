@@ -14,15 +14,16 @@ struct EventScrollView: View {
     @State private var items = Array(0..<10)
     @Binding var cancelSwipeAnimation: Int
     
+    @StateObject var dataViewModel = CalendarDataViewModel()
     var body: some View {
         ScrollView {
             if viewModel.showEco {
                 ForEach(viewModel.ecoInfos) { info in
-                    EcnomicStaticView(info: info).transition(.empty)
+                    EcnomicStaticView(info: info, dataViewModel: dataViewModel).transition(.empty)
                 }.animation(nil, value: cancelSwipeAnimation)
             } else {
                 ForEach(viewModel.stockInfos) { info in
-                    StockFinancialView(info: info).transition(.empty)
+                    StockFinancialView(info: info, dataViewModel: dataViewModel).transition(.empty)
                 }.animation(nil, value: cancelSwipeAnimation)
             }
         }//.animation(nil, value: cancelSwipeAnimation)

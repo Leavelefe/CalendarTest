@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EcnomicStaticView: View {
     let info: NewEcoInfo
+    @ObservedObject var dataViewModel: CalendarDataViewModel
     
     var body: some View {
         VStack(spacing: 5) {
@@ -19,7 +20,7 @@ struct EcnomicStaticView: View {
                     ecoItem in
                     StockStyleStack {
                         VStack {
-                            EcoTitleView(item: ecoItem)
+                            EcoTitleView(dataViewModel: dataViewModel, item: ecoItem)
                             //If content exist
                             EcoContentView(item: ecoItem)
                         }
@@ -32,9 +33,9 @@ struct EcnomicStaticView: View {
                         Spacer()
                         HStack {
                             Spacer()
-                            Image(systemName: "calendar.badge.minus")
+                            Image("calendar_today_nodata")
                                 .resizable()
-                                .frame(width: 40, height: 40)
+                                .frame(width: 100, height: 70)
                                 .foregroundColor(.blue)
                             Spacer()
                         }
@@ -48,8 +49,9 @@ struct EcnomicStaticView: View {
 }
 
 struct EcoTitleView: View {
-    let item: NewEcoItem
+    @ObservedObject var dataViewModel: CalendarDataViewModel
     @State private var showingConfirmationSheet = false
+    let item: NewEcoItem
     
     var body: some View {
         HStack (spacing: 0) {
@@ -71,11 +73,17 @@ struct EcoTitleView: View {
             
             Spacer()
             
-            Image(systemName: "calendar.badge.plus")
-                .foregroundColor(.gray)
-                .padding(.trailing, 13)
-                .padding(.leading, 0)
-                .addCalendarEventSheet(title: item.title, date: item.getDate())
+            if let existingCalendarEvent = dataViewModel.events.first(where: { $0.id == item.id }) {
+                Image("calendar_icon_add_event_success")
+                    .padding(.trailing, 13)
+                    .padding(.leading, 0)
+                    .addCalendarEventSheet(cusomizedEvent: existingCalendarEvent, viewModel: dataViewModel)
+            } else {
+                Image("calendar_icon_add_event")
+                    .padding(.trailing, 13)
+                    .padding(.leading, 0)
+                    .addCalendarEventSheet(cusomizedEvent: dataViewModel.generateEventBufferData(title: item.title, date: item.getDate(), eventType: 2, id: item.id), viewModel: dataViewModel)
+            }
         }
     }
 }
