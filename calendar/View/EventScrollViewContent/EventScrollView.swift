@@ -16,19 +16,32 @@ struct EventScrollView: View {
     
     @StateObject var dataViewModel = CalendarDataViewModel()
     var body: some View {
-        ScrollView {
-            if viewModel.showEco {
-                ForEach(viewModel.ecoInfos) { info in
-                    EcnomicStaticView(info: info, dataViewModel: dataViewModel).transition(.empty)
-                }.animation(nil, value: cancelSwipeAnimation)
-            } else {
-                ForEach(viewModel.stockInfos) { info in
-                    StockFinancialView(info: info, dataViewModel: dataViewModel).transition(.empty)
-                }.animation(nil, value: cancelSwipeAnimation)
+        ZStack {
+            ScrollView {
+                if viewModel.showEco {
+                    ForEach(viewModel.ecoInfos) { info in
+                        EcnomicStaticView(info: info, dataViewModel: dataViewModel).transition(.empty)
+                    }.animation(nil, value: cancelSwipeAnimation)
+                } else {
+                    ForEach(viewModel.stockInfos) { info in
+                        StockFinancialView(info: info, dataViewModel: dataViewModel).transition(.empty)
+                    }.animation(nil, value: cancelSwipeAnimation)
+                }
+            }//.animation(nil, value: cancelSwipeAnimation)
+            .refreshable {
+                print("hohooh")
             }
-        }//.animation(nil, value: cancelSwipeAnimation)
-        .refreshable {
-            print("hohooh")
+            if !viewModel.showEco {
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Image("calendar_add")
+                            .padding(.trailing, 20)
+                            .addCalendarEventSheet(cusomizedEvent: dataViewModel.generateEventBufferData(title: "", date: Date(), eventType: 3, id: nil), viewModel: dataViewModel)
+                    }.padding(.bottom, 40)
+                }
+            }
         }
     }
     

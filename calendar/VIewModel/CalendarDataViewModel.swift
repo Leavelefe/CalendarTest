@@ -51,4 +51,21 @@ class CalendarDataViewModel: ObservableObject {
         } while events.contains { $0.id == randomID }
         return randomID
     }
+    
+    func haveCustomizedDataInThatDay(dateID: String) -> Bool {
+        if events.firstIndex(where: { $0.date.getStringID() == dateID && $0.eventType == 3}) != nil {
+            return true
+        }
+        return false
+    }
+    
+    func returnCustomizedDataEvents(dateID: String) -> [CustomizedCalendarEvent] {
+        var result: [CustomizedCalendarEvent] = []
+        for event in events {
+            if event.date.getStringID() == dateID && event.eventType == 3 {
+                result.append(event)
+            }
+        }
+        return result
+    }
 }

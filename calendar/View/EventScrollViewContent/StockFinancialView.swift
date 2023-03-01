@@ -15,8 +15,8 @@ struct StockFinancialView: View {
         VStack(spacing: 5){
             DateView(chooseDay: info.id)
                 //No Event status
-                //Mark: && No eventType 3 events
-            if info.possessData == 0 {
+                //No stock data && No customized events
+            if info.possessData == 0 && !dataViewModel.haveCustomizedDataInThatDay(dateID: info.id.getStringID()) {
                 StockStyleStack {
                     VStack {
                         Spacer()
@@ -44,6 +44,18 @@ struct StockFinancialView: View {
                 }
                 
             } else {
+                if dataViewModel.haveCustomizedDataInThatDay(dateID: info.id.getStringID()) {
+                    StockStyleStack {
+                        VStack {
+                            CustomizedEventTitleView()
+                            ForEach(dataViewModel.returnCustomizedDataEvents(dateID: info.id.getStringID()), id: \.id) {
+                                customizedDataEvent in
+                                CustomizedEventContentView(dataViewModel: dataViewModel, customizedEvent: customizedDataEvent)
+                            }
+                        }
+                    }
+                }
+                
                 ForEach(info.stockList!, id: \.self) {
                     stockList in
                     StockStyleStack {
@@ -88,6 +100,37 @@ struct DateView: View {
     }
 }
 
+struct CustomizedEventTitleView: View {
+    var body: some View {
+        HStack {
+            Image("mine_calendar_event")
+                .padding(.leading, 7)
+                .padding(.vertical, 15)
+            
+            Text("我创建的事件").font(.system(size: 15))
+            Spacer()
+        }
+    }
+}
+
+struct CustomizedEventContentView: View {
+    @ObservedObject var dataViewModel: CalendarDataViewModel
+    let customizedEvent: CustomizedCalendarEvent
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text(customizedEvent.title)
+                Spacer()
+            }.padding([.horizontal], 30)
+                .padding(.top, -15)
+                .padding(.bottom, 10)
+                .addCalendarEventSheet(cusomizedEvent: customizedEvent, viewModel: dataViewModel)
+            Divider()
+        }
+    }
+}
+
 struct TitleView: View {
     @ObservedObject var dataViewModel: CalendarDataViewModel
     let stockItem: NewStockItem
@@ -99,12 +142,10 @@ struct TitleView: View {
             //2.休市提醒
             if chooseType == 3 {
                 Image("calendar_closedmarket")
-                    .foregroundColor(.yellow)
                     .padding(.leading, 7)
                     .padding(.vertical, 15)
             } else {
                 Image("mine_calendar_stock")
-                    .foregroundColor(.red)
                     .padding(.leading, 7)
                     .padding(.vertical, 15)
             }
