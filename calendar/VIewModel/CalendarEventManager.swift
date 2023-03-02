@@ -7,13 +7,16 @@
 
 import Foundation
 
+
+/// ScrollView中管理日历事件的viewModel，遵循CalendarManagerDelegate协议
+/// 当CalendarManageViewModel点击实际触发时，代理执行事件切换
 class CalendarEventManager: ObservableObject, CalendarManagerDelegate {
     lazy var firstViewModel: CalendarManageViewModel = {
         let viewModel = CalendarManageViewModel()
         viewModel.delegate = self
         return viewModel
     }()
-    /// Protocal
+    /// Protocol
     func CalendarManagerDidUpdateLocatedDate(_ viewModel: CalendarManageViewModel, locatedDate: Date) {
         if model.selectedDate != locatedDate {
             model.changeSelectedDate(locatedDate)

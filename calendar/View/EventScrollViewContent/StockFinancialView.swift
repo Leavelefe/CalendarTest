@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+/// 滚动视图中股票理财控件
+/// 日期，日期对应事件
+/// 定制事件也由股票理财tab栏展示
 struct StockFinancialView: View {
     let info: NewStockInfo
     @ObservedObject var dataViewModel: CalendarDataViewModel
@@ -149,17 +152,17 @@ struct TitleView: View {
                     .padding(.leading, 7)
                     .padding(.vertical, 15)
             }
-            //1. 新股新债
-            //2. 休市提醒 3
+            //1. 休市提醒 [3]
+            //2. 新股新债 [1, 2, 4, 5]
             if chooseType == 3 {
                 Text("休市提醒").font(.system(size: 15))
             } else {
                 Text("新股新债").font(.system(size: 15))
             }
             
-            //1. 首发上市 1/4
-            //2. 申购 2/5
-            //3. 无
+            //1. 首发上市 [1, 4]
+            //2. 申购 [2, 5]
+            //3. 无 [3]
             if chooseType == 1 || chooseType == 4 {
                 ZStack {
                     Rectangle().strokeBorder(.orange).frame(width: 55, height: 20)
@@ -255,28 +258,4 @@ struct StockStyleStack<Content>: View where Content: View {
             .padding(.bottom)
         )
     }
-}
-
-
-
-class BottomViewController: UIViewController {
-    let bottomView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 100))
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bottomView.backgroundColor = .blue
-        view.addSubview(bottomView)
-    }
-}
-
-struct BottomViewRepresentable: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> BottomViewController {
-        let controller = BottomViewController()
-        return controller
-    }
-    
-    func updateUIViewController(_ uiViewController: BottomViewController, context: Context) {
-    }
-    
-    typealias UIViewControllerType = BottomViewController
 }

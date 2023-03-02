@@ -29,10 +29,7 @@ struct EventTabView: View {
                         if selector == segmented.firstIndex(of: name){
                             Text(name)
                                 .font(.system(size: 18, weight: .bold))
-                                .overlay(LinearGradient(gradient:
-                                                            Gradient(colors: [.blue,.red, .yellow]),
-                                                            startPoint: .leading,
-                                                            endPoint: .trailing)
+                                .overlay(Image("calendar_change")
                                     .frame(height: 6).offset(y: 4) ,alignment: .bottom).foregroundColor(.black)
                         }else{
                             Text(name)

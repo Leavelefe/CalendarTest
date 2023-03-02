@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// 事件滚动视图
 struct EventScrollView: View {
     @ObservedObject var viewModel: CalendarEventManager
     @State private var isLoading = false

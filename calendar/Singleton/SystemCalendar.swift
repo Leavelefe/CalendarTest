@@ -93,6 +93,10 @@ struct SystemCalendar {
         calendar.isDate(day_1, inSameDayAs: day_2)
     }
     
+    
+    /// adjacentThreeMonths
+    /// - Parameter oneDay: Selected Date
+    /// - Returns: adjacent Three Month based on selected date
     public func adjacentThreeMonths(oneDay: Date) -> [Date] {
         //logic need to be adjust for 13 and 0 case
         var dates: [Date] = []
@@ -117,6 +121,10 @@ struct SystemCalendar {
         return dates
     }
     
+    
+    /// getPreviousDay
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The day before selected date
     private func getPreviousDay(_ nowDay: Date) -> Date {
         
         let lastTime: TimeInterval = -(24*60*60) // 往前减去一天的秒数，昨天
@@ -126,6 +134,10 @@ struct SystemCalendar {
         return lastDate
     }
     
+    
+    /// getNextDay
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The day after selected date
     public func getNextDay(_ nowDay: Date) -> Date {
         let nextTime: TimeInterval = 24*60*60 //
         
@@ -133,6 +145,10 @@ struct SystemCalendar {
         return nextDate
     }
     
+    
+    /// startOfCurrentMonth
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The first day of the month to which the selected date belongs
     private func startOfCurrentMonth(_ nowDay: Date) -> Date {
         
         let calendar = Calendar.current
@@ -142,6 +158,9 @@ struct SystemCalendar {
         return startOfMonth!
     }
     
+    /// endOfCurrentMonth
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The last day of the month to which the selected date belongs
     private func endOfCurrentMonth(_ nowDay: Date) -> Date {
         
         let calendar = Calendar.current
@@ -157,6 +176,9 @@ struct SystemCalendar {
         return endOfMonth!
     }
     
+    /// nextMonth
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The first day of the next month to which the selected date belongs
     public func nextMonth(_ nowDay: Date) -> Date {
         let endOfCurrentMonth: Date = self.endOfCurrentMonth(nowDay)
         let nextMonthFirstDate: Date = self.getNextDay(endOfCurrentMonth)
@@ -164,6 +186,9 @@ struct SystemCalendar {
         return nextMonthFirstDate
     }
     
+    /// previousMonth
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The last day of the last month to which the selected date belongs
     public func previousMonth(_ nowDay: Date) -> Date {
         let startOfCurrentMonth: Date = self.startOfCurrentMonth(nowDay)
         let previousMonthLastDate: Date = self.getPreviousDay(startOfCurrentMonth)
@@ -171,6 +196,9 @@ struct SystemCalendar {
         return previousMonthLastDate
     }
     
+    /// nextWeek
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The first day of the next week to which the selected date belongs
     public func nextWeek(_ nowDay: Date) -> Date {
         let endOfCurrentWeek: Date = self.weekDays(oneDay: nowDay).last!
         let nextWeekFirstDate: Date = self.getNextDay(endOfCurrentWeek)
@@ -178,6 +206,9 @@ struct SystemCalendar {
         return nextWeekFirstDate
     }
     
+    /// previousWeek
+    /// - Parameter nowDay: Selected Date
+    /// - Returns: The last day of the last week to which the selected date belongs
     public func previousWeek(_ nowDay: Date) -> Date {
         let startOfCurrentWeek: Date = self.weekDays(oneDay: nowDay).first!
         let previousWeekLastDate: Date = self.getPreviousDay(startOfCurrentWeek)

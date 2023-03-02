@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Part of the logic and var retained in the CircleView will be put into the Model and ViewModel respectively
+///日历中日期的单独小视图
 struct CircleView: View {
     let day: DayModel
     

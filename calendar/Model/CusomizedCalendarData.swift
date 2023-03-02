@@ -7,6 +7,9 @@
 
 import Foundation
 
+
+///CalendarDataViewModel 的直属模型
+///用于构建用户自定义事件模型
 class CustomizedCalendarData {
     static let shared = CustomizedCalendarData()
     private let userDefaults = UserDefaults.standard

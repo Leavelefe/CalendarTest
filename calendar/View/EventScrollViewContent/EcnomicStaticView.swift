@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// 滚动视图中宏观财经控件
+/// 日期，日期对应事件
 struct EcnomicStaticView: View {
     let info: NewEcoInfo
     @ObservedObject var dataViewModel: CalendarDataViewModel

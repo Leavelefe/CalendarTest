@@ -8,6 +8,8 @@
 import SwiftUI
 import Foundation
 
+
+/// 管理用户保存日历事件的ViewModel
 class CalendarDataViewModel: ObservableObject {
     private let customizedCalendarData = CustomizedCalendarData.shared
     @Published var events: [CustomizedCalendarEvent] = []

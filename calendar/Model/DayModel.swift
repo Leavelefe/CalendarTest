@@ -20,11 +20,5 @@ struct DayModel: Identifiable {
     var isCurrentMonth: Bool = false
     
     var date: Date
-    
-    //init
-//    init() {
-//        today = Day(Date()
-//        
-//    }
-    
+
 }

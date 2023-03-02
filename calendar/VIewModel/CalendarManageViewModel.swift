@@ -8,10 +8,14 @@
 import Foundation
 /// Under Construction
 
+
+/// 选择指定日期后的代理
 protocol CalendarManagerDelegate: AnyObject {
     func CalendarManagerDidUpdateLocatedDate(_ viewModel: CalendarManageViewModel, locatedDate: Date)
 }
 
+
+/// 用于控制顶部日历各种切换的ViewModel
 class CalendarManageViewModel: ObservableObject {
     weak var delegate: CalendarManagerDelegate?
     

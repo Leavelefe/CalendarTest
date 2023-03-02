@@ -7,6 +7,10 @@
 
 import Foundation
 
+
+///CalendarEventManager 的直属模型
+///用于构建整个日历事件系统模型
+///核心维护filter，stockInfolist，ecoInfolist
 struct CalendarEvent {
     //0 - 宏观财经
     //1 - 股票理财

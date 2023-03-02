@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// 添加日历事件点击视图被包装于ViewModifier中
+/// 该ViewModifier然后被包装为View的延展
+/// 从而作为单独的控件Component可以用于任何指定视图
+/// 需要提供监控用户数据的ViewModel，和需要编辑的日历事件
 struct AddCalendarEventView: View {
     let eventDay: Date
     let eventType: Int

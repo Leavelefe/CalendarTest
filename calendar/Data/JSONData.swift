@@ -7,17 +7,19 @@
 
 import Foundation
 
-//let stockData = [NewStockItem(id: "889366", day: "20230222", time: "10:30", stockName: "普润申购", stockPrice: "8.5", stockType: 2),
-//                   NewStockItem(id: "832149", day: "20230222", stockName: "利尔达申购", stockPrice: "5", stockType: 1),
-//                   NewStockItem(id: "603190", day: "20230223", stockName: "亚通申购", stockPrice: "29.09", stockType: 1),
-//                   NewStockItem(id: "787522", day: "20230223", stockName: "纳睿申购", stockPrice: "46.68", stockType: 2)
-//]
+
+//模拟股票理财事件数据
 let RequestStockData = getStockItems()!
 
+//模拟宏观财经事件数据
 let EcoData = getEcoInfoItems()!
 
+//模拟日历事件数据
 let toDoData = readToDoDataFromJSONFile()!
 
+
+/// 通过Bundle读取股票理财事件JSON数据
+/// - Returns: 返回Data类型JSON数据包
 func readEventDataFromJSONFile() -> Data? {
     let bundle = Bundle.main
     guard let jsonPath = bundle.path(forResource: "EventData", ofType: "geojson") else {
@@ -27,6 +29,8 @@ func readEventDataFromJSONFile() -> Data? {
     return try? Data(contentsOf: URL(fileURLWithPath: jsonPath))
 }
 
+/// 通过Bundle读取宏观财经事件JSON数据
+/// - Returns: 返回Data类型JSON数据包
 func readEcoDataFromJSONFile() -> Data? {
     let bundle = Bundle.main
     guard let jsonPath = bundle.path(forResource: "EcoData", ofType: "geojson") else {
@@ -36,6 +40,8 @@ func readEcoDataFromJSONFile() -> Data? {
     return try? Data(contentsOf: URL(fileURLWithPath: jsonPath))
 }
 
+/// 通过Bundle读取宏观财经事件JSON数据
+/// - Returns: 返回Data类型JSON数据包
 func readToDoDataFromJSONFile() -> [[String: Any]]? {
     if let path = Bundle.main.path(forResource: "ToDoData", ofType: "geojson"),
             let data = try? Data(contentsOf: URL(fileURLWithPath: path)),
@@ -47,6 +53,8 @@ func readToDoDataFromJSONFile() -> [[String: Any]]? {
 }
 
 
+/// 将JSON数据解包为[NewStockItem]
+/// - Returns: [NewStockItem]
 func getStockItems() -> [NewStockItem]? {
     guard let jsonData = readEventDataFromJSONFile() else {
         // 无法读取 JSON 文件
@@ -68,6 +76,8 @@ func getStockItems() -> [NewStockItem]? {
 
 }
 
+/// 将JSON数据解包为[NewEcoItem]
+/// - Returns: [NewEcoItem]
 func getEcoInfoItems() -> [NewEcoItem]? {
     guard let jsonData = readEcoDataFromJSONFile() else {
         // 无法读取 JSON 文件
@@ -89,6 +99,8 @@ func getEcoInfoItems() -> [NewEcoItem]? {
 
 }
 
+/// 检验该日期是否存在股票理财事件或者宏观财经事件
+/// - Returns: 存在为true，不存在为false
 func analyzeDataToDo(for date: Date) -> Bool? {
     let bufferString = date.getStringID()
     for dict in toDoData {
